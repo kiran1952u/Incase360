@@ -9,8 +9,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
+
 @Test
 public class UserAction_multi_notice {
+    //THis  script is for  multiple langues notice test
     public void UserAction() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
@@ -56,14 +58,13 @@ public class UserAction_multi_notice {
         // Select an option by visible text
         dropdown1.selectByVisibleText("vipul_letterhead");
         WebElement fileInput = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[1]/label[2]/input"));
-///html/body/div/div[2]/div[2]/div/div/div[3]/div[1]/label[2]/input
         // Provide the file path of the CSV file to be uploaded
         String csvFilePath = "D:\\UploadDATA\\NOTICE  CVS SAME DATA\\hindi_kannad_panjabi_Marathi_combine_data_testing.csv";
 
         // Use sendKeys() method to upload the CSV file
         fileInput.sendKeys(csvFilePath);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("H_K_P_M_test_Pdf");
+        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Test_002");
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[5]/button")).click();
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
@@ -75,8 +76,8 @@ public class UserAction_multi_notice {
             apiTest.testCreateNotice();
         }
         apiTest.testCreatePDF1();
-        refreshPage(driver);
 
+        refreshPage(driver);
 
     }
 
