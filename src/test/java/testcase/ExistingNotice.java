@@ -2,11 +2,21 @@ package testcase;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import utilities.Login_functionality;
 
+import java.util.concurrent.TimeUnit;
+
+@Test
 public class ExistingNotice {
+
+
     public void Existing_notice() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
@@ -45,5 +55,15 @@ public class ExistingNotice {
         driver.findElement(By.xpath("//*[@id=\"layout-wrapper\"]/div[2]/div/div/div[2]/div[2]/div[2]/div[1]/div/div/div[8]/div/div/button[2]")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[5]/a")).click();
+        driver.findElement(By.xpath("//*[@id=\"layout-wrapper\"]/div[2]/div/div/div[2]/div[1]/div/div/input")).sendKeys("kiran_last_test");
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//*[@id=\"layout-wrapper\"]/div[2]/div/div/div[2]/div[1]/div/div/button")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div[1]/div/div/div[8]/div/div/button[1]")).click();
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        driver.findElement(By.xpath("/html/body/div[3]/div/div[6]/button[1]")).click();
+
+
     }
+
+
 }
