@@ -74,8 +74,7 @@ public class UserNotice {
         apiTest.testCreateNotice();
         apiTest.testCreatePDF();
         refreshPage(driver);
-// this is for  refresh pa
-        //dfsdf
+
     }
 
     @Test
