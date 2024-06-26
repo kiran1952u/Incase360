@@ -17,6 +17,7 @@ import utilities.Login_functionality;
 import java.sql.Driver;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+
 @Test
 public class BulkSend {
 
@@ -39,7 +40,7 @@ public class BulkSend {
     public void loginPage() throws InterruptedException {
         Login_functionality test = new Login_functionality();
         test.Login(driver);
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/a")).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/ul/li[2]/a")).click();
@@ -56,52 +57,64 @@ public class BulkSend {
 
         // Select an option by visible text
         select.selectByVisibleText("Parent_notice_17june1");
-        String baseNoticeId = "IN3155-";
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div[3]/div/div"));
 
-        for (int i = 1; i <= 10; i++) {  // Replace 10 with the desired number of iterations
-            // Construct the notice ID
-            String noticeId = baseNoticeId + i;
+        // Click on the element
+        element.click();
+        Thread.sleep(1000);
+        WebElement element1 = driver.findElement(By.xpath("/html/body/div[2]/div/div[8]/span"));
 
-            // Wait for the first input field to be visible and send keys
-            WebElement firstInputField = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/input"));
-            firstInputField.sendKeys(noticeId);
-
-            // Construct the next notice ID
-            String nextNoticeId = baseNoticeId + (i + 1);
-
-            // Wait for the second input field to be visible and send keys
-            WebElement secondInputField = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/input"));
-            secondInputField.sendKeys(nextNoticeId);
-
-            // Click the button
-            driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[4]/button")).click();
-
-            // Wait for the confirmation button to be clickable and click it
-            WebElement confirmButton = driver.findElement(By.xpath("/html/body/div[2]/div/div[6]/button[1]"));
-            confirmButton.click();
-
-            // Clear the input fields
-            firstInputField.clear();
-            secondInputField.clear();
-
-            // Add a delay if necessary (e.g., to observe the changes)
-            Thread.sleep(1000);  // Replace with the desired wait time in milliseconds
-
-//        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/input")).sendKeys("IN3155-1");
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/input")).sendKeys("IN3155-4");
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[4]/button")).click();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            driver.findElement(By.xpath("/html/body/div[2]/div/div[6]/button[1]")).click();
+        // Click on the element
+        element1.click();
+        driver.findElement(By.cssSelector("button[class='btn btn-primary']")).click();
+        driver.findElement(By.cssSelector("button[class='swal2-confirm swal2-styled swal2-default-outline']")).click();
+//        String baseNoticeId = "IN3155-";
+//
+//        for (int i = 1; i <= 10; i++) {  // Replace 10 with the desired number of iterations
+//            // Construct the notice ID
+//            String noticeId = baseNoticeId + i;
+//
+//            // Wait for the first input field to be visible and send keys
+//            WebElement firstInputField = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/input"));
+//            firstInputField.sendKeys(noticeId);
+//
+//            // Construct the next notice ID
+//            String nextNoticeId = baseNoticeId + (i + 1);
+//
+//            // Wait for the second input field to be visible and send keys
+//            WebElement secondInputField = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/input"));
+//            secondInputField.sendKeys(nextNoticeId);
+//
+//            // Click the button
+//            driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[4]/button")).click();
+//
+//            // Wait for the confirmation button to be clickable and click it
+//            WebElement confirmButton = driver.findElement(By.xpath("/html/body/div[2]/div/div[6]/button[1]"));
+//            confirmButton.click();
+//
+//            // Clear the input fields
+//            firstInputField.clear();
+//            secondInputField.clear();
+//
+//
+//            Thread.sleep(1000);
+//
+//            driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/input")).sendKeys("IN3155-1");
+//            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//            driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/input")).sendKeys("IN3155-4");
+//            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//            driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[4]/button")).click();
+//            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//            driver.findElement(By.xpath("/html/body/div[2]/div/div[6]/button[1]")).click();
 
         }
-
 
     }
 
 
-}
+
+
 
 
 
