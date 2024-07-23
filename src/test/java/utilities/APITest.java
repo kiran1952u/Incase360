@@ -1,4 +1,4 @@
-package testcase;
+package utilities;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -21,8 +21,6 @@ public class APITest {
 
 
         Response response = given()
-                .body(requestBody)
-                .header("Content-Type", "application/json")
                 .when()
                 .post("/createNotice");
 

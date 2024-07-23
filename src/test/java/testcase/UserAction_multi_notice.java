@@ -7,8 +7,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+import utilities.APITest;
 
 import java.util.concurrent.TimeUnit;
+
 @Test
 public class UserAction_multi_notice {
     public void UserAction() throws InterruptedException {
@@ -46,7 +48,7 @@ public class UserAction_multi_notice {
         Select dropdown = new Select(dropdownElement);
 
         // Select an option by visible text
-        dropdown.selectByVisibleText("Parent_notice_17june1");
+        dropdown.selectByVisibleText("Parent_July1");
         Thread.sleep(3000);
         WebElement dropdownElement1 = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[3]/select"));
 
@@ -54,7 +56,7 @@ public class UserAction_multi_notice {
         Select dropdown1 = new Select(dropdownElement1);
 
         // Select an option by visible text
-        dropdown1.selectByVisibleText("vipul_letterhead");
+        dropdown1.selectByVisibleText("Vipul_letterhead_3");
         WebElement fileInput = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[1]/label[2]/input"));
 ///html/body/div/div[2]/div[2]/div/div/div[3]/div[1]/label[2]/input
         // Provide the file path of the CSV file to be uploaded
@@ -63,7 +65,7 @@ public class UserAction_multi_notice {
         // Use sendKeys() method to upload the CSV file
         fileInput.sendKeys(csvFilePath);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("H_K_P_M_test_Pdf");
+        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Test_04");
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[5]/button")).click();
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);

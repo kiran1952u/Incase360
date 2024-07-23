@@ -7,8 +7,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+import utilities.APITest;
 
 import java.util.concurrent.TimeUnit;
+
 @Test
 public class UserNotice {
     public void UserAction() throws InterruptedException {
@@ -29,7 +31,7 @@ public class UserNotice {
         Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@id=\"root\"]/div[2]/section/main/div/div/div/div/div/div/div/form/div[4]/div[2]/button")).click();
         Thread.sleep(3000);
-        driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/a")).click();
+        driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1)")).click();
         Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/ul/li[1]/a")).click();
         Thread.sleep(3000);
@@ -63,7 +65,7 @@ public class UserNotice {
         // Use sendKeys() method to upload the CSV file
         fileInput.sendKeys(csvFilePath);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Test_Batch_op");
+        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Test_Batch_op1");
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[5]/button")).click();
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
@@ -73,13 +75,18 @@ public class UserNotice {
         apiTest.setup();
         apiTest.testCreateNotice();
         apiTest.testCreatePDF();
-        refreshPage(driver);
-
-
+        driver.navigate().refresh();
     }
 
     @Test
     public void refreshPage(ChromeDriver driver) {
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         driver.navigate().refresh();
+
     }
 }
