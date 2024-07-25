@@ -46,8 +46,6 @@ public class Auto_download {
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[3]/div/div")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[27]/span")).click();
-
-
     }
 
 
