@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class APITest {
+public class APITestStandard {
 
     @BeforeClass
     public void setup() {
@@ -33,25 +33,6 @@ public class APITest {
     }
 
     @Test
-    public void testCreatePDFexpress() {
-
-        String requestBody = "{ \"title\": \"Test PDF\", \"content\": \"This is the content of the test PDF\" }";
-
-
-        Response response = given()
-                .body(requestBody)
-                .header("Content-Type", "application/json")
-                .when()
-                .post("https://tools.incase360.com/notice-management-dev/create-pdf");
-//  this os the thevb
-
-        response.then()
-                .statusCode(200);
-
-
-        response.prettyPrint();
-    }
-    @Test
     public void testCreatePDF1() {
 
         String requestBody = "{ \"title\": \"Test PDF\", \"content\": \"This is the content of the test PDF\" }";
@@ -61,7 +42,7 @@ public class APITest {
                 .body(requestBody)
                 .header("Content-Type", "application/json")
                 .when()
-                .post("https://testapi.incase360.com/createPdf");
+                .post("/createPdf");
 
 
         response.then()

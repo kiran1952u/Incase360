@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Test
-public class IngonitoAutoreport {
+public class Autoreport_Parent_notice {
     private WebDriver driver;
 
     @BeforeClass
