@@ -5,9 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-
+@Test
 public class AllNotice {
     public void Addnewnotice() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
@@ -53,6 +54,6 @@ public class AllNotice {
         driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > button:nth-child(1)")).click();
         Thread.sleep(3000);
         driver.findElement(By.cssSelector("div[class='main-content'] li:nth-child(2) a:nth-child(1)")).click();
-        driver.quit();
+//        driver.quit();
     }
 }

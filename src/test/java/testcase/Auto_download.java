@@ -1,13 +1,24 @@
 package testcase;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.restassured.internal.path.json.mapping.JsonPathJackson1ObjectDeserializer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import utilities.AutoDownloadAPI;
 import utilities.Login_functionality;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
 @Test
 public class Auto_download {
     private WebDriver driver;
@@ -45,8 +56,38 @@ public class Auto_download {
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[3]/div/div")).click();
         Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[27]/span")).click();
+        driver.findElement(By.xpath("/html/body/div[3]/div[1]/input")).sendKeys("Test_special_char");
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/span")).click();
+        WebDriverWait wait = new WebDriverWait(driver, 10); // 10 seconds timeout
+        WebElement dateTimeInput = wait.until(ExpectedConditions.elementToBeClickable(By.id("scheduled_on")));
+
+        // Get the current date and time
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("DD-MM-YYYY'T'HH:mm"); // Format required for datetime-local input
+        String formattedDateTime = currentDateTime.format(formatter);
+
+        // Set the current date and time into the input field
+        dateTimeInput.sendKeys(formattedDateTime);
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[11]/button")).click();
+
+
+        AutoDownloadAPI test1 = new AutoDownloadAPI();
+        test1.setup();
+        test1.autoDownlaodAPI();
+        Thread.sleep(5000);
+        driver.navigate().refresh();
+        Thread.sleep(30000);
+        driver.quit();
+
+
     }
 
-
+    public void refreshPage(ChromeDriver driver) {
+        driver.navigate().refresh();
+    }
 }
+
+
+

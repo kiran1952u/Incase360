@@ -6,14 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import utilities.APITest;
 
 import java.util.concurrent.TimeUnit;
 
 @Test
-public class UserAction_multi_notice {
+public class Multiple_lang_pdf_test {
     //THis  script is for  multiple langues notice test
     public void UserAction() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();

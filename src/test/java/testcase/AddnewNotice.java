@@ -29,7 +29,8 @@ public class AddnewNotice {
         driver.findElement(By.id("captcha")).sendKeys(e.getAttribute("innerHTML"));
         driver.findElement(By.xpath("//*[@id=\"root\"]/div[2]/section/main/div/div/div/div/div/div/div/form/div[4]/div[2]/button")).click();
         Thread.sleep(3000);
-        driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[4]/a")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[4]/a")).click();
+//        /html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[4]/a
         Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[4]/ul/li[1]/a")).click();
         Thread.sleep(3000);
@@ -38,9 +39,11 @@ public class AddnewNotice {
         Thread.sleep(4000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div/div/div/div[1]/span")).click();
         Thread.sleep(4000);
-        driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/input")).sendKeys("KIRAN");
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div/div")).sendKeys("KIRAN");
+//        /html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div/div
         Thread.sleep(4000);
-        driver.findElement(By.xpath("/html/body/div[4]/div[2]/div/div/div/label/span[1]/input")).click();
+        driver.findElement(By.xpath("/html/body/div[4]/div[2]/div/div/div")).click();
+//        /html/body/div[4]/div[2]/div/div/div
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[4]/div/div/div/div[1]/div[2]/div[1]/iframe")).sendKeys("Reference: ${notice_ID}\n" +
                 "Date: ${date_of_LRN}\n" +
                 "\n" +
@@ -101,19 +104,28 @@ public class AddnewNotice {
 
         // Scroll down by 500 pixels
         js.executeScript("window.scrollBy(0,500)");
+        Thread.sleep(3000);
+        JavascriptExecutor js1 = (JavascriptExecutor) driver;
 
-        driver.findElement(By.xpath("//*[@id=\"layout-wrapper\"]/div[2]/div/div/div[2]/form/button")).click();
+        // Scroll down by 500 pixels
+        js.executeScript("window.scrollBy(0,500)");
+        Thread.sleep(3000);
+        JavascriptExecutor js3 = (JavascriptExecutor) driver;
+
+        // Scroll down by 500 pixels
+        js.executeScript("window.scrollBy(0,500)");
+        Thread.sleep(300);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/button")).click();
+
     }
 
     //
     @DataProvider(name = "userData")
     public Object[][] userData() {
         return new Object[][]{
-                {"Test_font_test3", "Test_font_test3"},
-                {"Test_font_test2", "Test_font_test2"},
-//                    {"Test_font_test2","Test_font_test2"},
-//                    {"Test_font_test3","Test_font_test3"}
-
+                {"Test_font_test4", "Test_font_tes5"},
+//                {"Test_font_test6", "Test_font_test7"},
+//
 
         };
 
