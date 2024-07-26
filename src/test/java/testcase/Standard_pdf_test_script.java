@@ -62,9 +62,9 @@ public class Standard_pdf_test_script {
             WebElement dropdownElement1 = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[3]/select"));
             Select dropdown1 = new Select(dropdownElement1);
             dropdown1.selectByVisibleText("Kiran Letterhead 2");
-
-            WebElement fileInput = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[1]/label[2]/input"));
-            String csvFilePath = "D:\\Sandard_data\\Standard DATA\\Standard_api_pdf_csv_data\\standard csv.csv";
+            Thread.sleep(3000);
+            WebElement fileInput = driver.findElement(By.xpath("//input[@name='uploadCsv']"));
+            String csvFilePath = "D:\\Sandard_data\\Standard DATA\\Standard_api_pdf\\standart.csv";
             fileInput.sendKeys(csvFilePath);
 
             driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Test_Batch_op1");
