@@ -95,7 +95,7 @@ public class AddnewNotice {
         WebElement fileInput = driver.findElement(By.xpath("//*[@id='layout-wrapper']/div[2]/div/div/div[2]/form/div[5]/label[2]/input"));
 
         // Provide the file path of the CSV file to be uploaded
-        String csvFilePath = "D:\\UploadDATA\\Incase notice  FORMAT\\Upload CSV DATA\\kiran_last_test\\kiran last test csv format\\kirantestdata.csv";
+        String csvFilePath = "D:\\UploadDATA\\Upload DATA FOR Notices\\Upload CSV DATA\\kiran_last_test\\kiran last test csv format\\kirantestdata.csv";
 
         // Use sendKeys() method to upload the CSV file
         fileInput.sendKeys(csvFilePath);

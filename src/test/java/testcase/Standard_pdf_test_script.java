@@ -64,7 +64,7 @@ public class Standard_pdf_test_script {
             dropdown1.selectByVisibleText("Kiran Letterhead 2");
             Thread.sleep(3000);
             WebElement fileInput = driver.findElement(By.xpath("//input[@name='uploadCsv']"));
-            String csvFilePath = "D:\\Sandard_data\\Standard DATA\\Standard_api_pdf\\standart.csv";
+            String csvFilePath = "D:\\Sandard_data\\Standard DATA\\Standard_api_pdf\\standard_data.csv";
             fileInput.sendKeys(csvFilePath);
 
             driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Test_Batch_op1");

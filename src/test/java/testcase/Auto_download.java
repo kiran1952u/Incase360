@@ -44,28 +44,28 @@ public class Auto_download {
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[1]/div/div")).click();
         Thread.sleep(3000);
-        driver.findElement(By.cssSelector("input[placeholder='Search']")).sendKeys("KIRAN");
+        driver.findElement(By.cssSelector("input[placeholder='Search']")).sendKeys("vipul");
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/span")).click();
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[2]/div/div")).click();
         Thread.sleep(3000);
-        driver.findElement(By.cssSelector("input[placeholder='Search']")).sendKeys("pdf_test");
+        driver.findElement(By.cssSelector("input[placeholder='Search']")).sendKeys("standard_notice_3");
         Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[3]/span")).click();
+        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/span")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[3]/div/div")).click();
         Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[1]/input")).sendKeys("Test_special_char");
+        driver.findElement(By.xpath("/html/body/div[3]/div[1]/input")).sendKeys("test_pdf");
         Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/span")).click();
+        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/span")).click();
         WebDriverWait wait = new WebDriverWait(driver, 10); // 10 seconds timeout
         WebElement dateTimeInput = wait.until(ExpectedConditions.elementToBeClickable(By.id("scheduled_on")));
-
         // Get the current date and time
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("DD-MM-YYYY'T'HH:mm"); // Format required for datetime-local input
         String formattedDateTime = currentDateTime.format(formatter);
+
 
         // Set the current date and time into the input field
         dateTimeInput.sendKeys(formattedDateTime);

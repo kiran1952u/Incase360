@@ -49,7 +49,9 @@ public class AllNotice {
         Thread.sleep(2000);
         driver.switchTo().window(tabs.get(0));
         Thread.sleep(3000);
-        driver.findElement(By.cssSelector(".swal2-actions > .swal2-confirm")).click();
+        driver.findElement(By.cssSelector("button[class='swal2-confirm swal2-styled swal2-default-outline']")).click();
+//        .swal2-actions > .swal2-confirm
+//        button[class='swal2-confirm swal2-styled swal2-default-outline']
         Thread.sleep(3000);
         driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > button:nth-child(1)")).click();
         Thread.sleep(3000);

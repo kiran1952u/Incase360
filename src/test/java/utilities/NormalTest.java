@@ -1,23 +1,17 @@
-package testcase;
+package utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import utilities.AutoreportAPI;
-import utilities.Login_functionality;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.concurrent.TimeUnit;
 
 @Test
-public class Autoreport_Parent_notice {
+public class NormalTest {
     private WebDriver driver;
 
     @BeforeClass
@@ -35,8 +29,7 @@ public class Autoreport_Parent_notice {
 
     }
 
-    public void main() throws InterruptedException {
-
+    public void test() throws InterruptedException {
         Login_functionality test = new Login_functionality();
         test.Login(driver);
         Thread.sleep(3000);
@@ -61,34 +54,26 @@ public class Autoreport_Parent_notice {
         driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[2]/span")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[4]/input")).click();
-//        Thread.sleep(1000);
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm a");
-        String currentDateTime = now.format(formatter);
+        Thread.sleep(1000);
+        String customDateTime = "08-08-2024 02:57 PM";
 
-        // Find the datetime-local input element
-        WebElement dateTimeInput = driver.findElement(By.id("report_on"));
+        // Define the formatter to parse the custom date-time string
+        DateTimeFormatter customFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm a");
+        LocalDateTime dateTime = LocalDateTime.parse(customDateTime, customFormatter);
 
-        // Set the value to the current date and time
-        dateTimeInput.sendKeys(currentDateTime);
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[5]/div/div")).click();
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/span")).click();
-        Thread.sleep(3000);
-        driver.findElement(By.cssSelector("button[type='submit']")).click();
+        // Define the formatter to convert to "yyyy-MM-dd'T'HH:mm" format
+        DateTimeFormatter localFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+        String formattedDateTime = dateTime.format(localFormatter);
 
-        AutoreportAPI test1 = new AutoreportAPI();
-        test1.setup();
-        for (int i = 0; i < 5; i++) {
-            test1.setup();
-        }
-        test1.testGetRequests();
+        // Locate the date picker element using the provided XPath
+        WebElement datePicker = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[4]/input"));
+
+        // Clear the existing value (if necessary)
+        datePicker.clear();
+
+        // Send the formatted date and time value directly
+        datePicker.sendKeys(formattedDateTime);
+
+
     }
-
-
 }
-
-
-
-
