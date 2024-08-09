@@ -46,7 +46,7 @@ public class Standard_pdf_test_script {
             driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div/div")).click();
             Thread.sleep(3000);
 
-            driver.findElement(By.xpath("/html/body/div[2]/div[1]/input")).sendKeys("kiran");
+            driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/input")).sendKeys("kiran");
 //            /html/body/div[2]/div[1]/input
             Thread.sleep(3000);
 
@@ -78,15 +78,15 @@ public class Standard_pdf_test_script {
             apiTest.setup();
 
 
-            System.out.println("Calling testCreateNotice for the first time...");
+            System.out.println("testCreateNotice insert notice successfully");
             apiTest.testCreateNotice();
             Thread.sleep(2000);
 
-            System.out.println("Calling testCreateNotice for the second time...");
-            apiTest.testCreateNotice();
-            Thread.sleep(2000);
+//            System.out.println("testCreateNotice pdf generatede successfully ");
+//            apiTest.testCreateNotice();
+//            Thread.sleep(2000);
 
-            System.out.println("Calling testCreatePDF1...");
+            System.out.println("testCreatePDF1 pdf generatede successfully");
             apiTest.testCreatePDF1();
 
             // Refresh the page

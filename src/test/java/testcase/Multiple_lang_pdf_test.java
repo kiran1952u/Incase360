@@ -38,7 +38,7 @@ public class Multiple_lang_pdf_test {
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div/div")).click();
         Thread.sleep(3000);
-        driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/input")).sendKeys("vipul");
+        driver.findElement(By.xpath("/html/body/div[2]/div[1]/input")).sendKeys("vipul");
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/span")).click();
         Thread.sleep(3000);
@@ -65,7 +65,7 @@ public class Multiple_lang_pdf_test {
         // Use sendKeys() method to upload the CSV file
         fileInput.sendKeys(csvFilePath);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Test_005");
+        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Test_0012");
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[5]/button")).click();
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);

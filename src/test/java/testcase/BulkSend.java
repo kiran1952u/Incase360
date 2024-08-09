@@ -47,7 +47,7 @@ public class BulkSend {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[1]/div[1]/div/div")).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/input")).sendKeys("vipul");
+        driver.findElement(By.xpath("/html/body/div[2]/div[1]/input")).sendKeys("vipul");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/span")).click();
         WebElement noticeTypeDropdown = driver.findElement(By.className("form-control"));
@@ -65,7 +65,7 @@ public class BulkSend {
         Thread.sleep(1000);
         WebElement element1 = driver.findElement(By.xpath("/html/body/div[2]/div/div[8]/span"));
 
-        // Click on the element
+
         element1.click();
         driver.findElement(By.cssSelector("button[class='btn btn-primary']")).click();
         driver.findElement(By.cssSelector("button[class='swal2-confirm swal2-styled swal2-default-outline']")).click();
