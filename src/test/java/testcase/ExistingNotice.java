@@ -15,8 +15,6 @@ import java.util.concurrent.TimeUnit;
 
 @Test
 public class ExistingNotice {
-
-
     public void Existing_notice() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");

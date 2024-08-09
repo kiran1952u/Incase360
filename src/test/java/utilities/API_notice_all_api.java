@@ -6,7 +6,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class API2 {
+public class API_notice_all_api {
     public static void main(String[] args) {
 
 
