@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.AutoreportAPI;
+import utilities.AutoreportAPI_for_parent_notice;
 import utilities.Login_functionality;
 
 import java.time.LocalDateTime;
@@ -42,19 +43,23 @@ public class Autoreport_Parent_notice {
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[11]/a")).click();
         Thread.sleep(4000);
-//            driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/input")).sendKeys("vipul");
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[11]/ul/li[1]/a")).click();
+        Thread.sleep(4000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[1]/div/div/div/div[1]")).click();
         Thread.sleep(4000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[1]/div/div")).sendKeys("vipul");
 //           /html/body/div[3]/div[2]/div/span
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/span")).click();
+        Thread.sleep(4000);
+        WebElement element = driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/span"));
+
+        // Click on the element
+        element.click();
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[2]/div/div")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/input")).sendKeys("parent_july1");
-        Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[15]/span")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/span")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[3]/div/div")).click();
         Thread.sleep(1000);
@@ -77,12 +82,15 @@ public class Autoreport_Parent_notice {
         driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/span")).click();
         Thread.sleep(3000);
         driver.findElement(By.cssSelector("button[type='submit']")).click();
-        AutoreportAPI test1 = new AutoreportAPI();
-        test1.setup();
-        for (int i = 0; i < 5; i++) {
-            test1.setup();
-        }
-        test1.testGetRequests();
+//        AutoreportAPI test1 = new AutoreportAPI();
+//        test1.setup();
+//        for (int i = 0; i < 5; i++) {
+//            test1.setup();
+//        }
+//        test1.testGetRequests();
+        AutoreportAPI_for_parent_notice test2 = new AutoreportAPI_for_parent_notice();
+        test2.setup();
+        test2.testGetRequests();
     }
 
 }
