@@ -59,8 +59,15 @@ public class ExistingNotice {
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div[1]/div/div/div[8]/div/div/button[1]")).click();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div[3]/div/div[6]/button[1]")).click();
-
-
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div[1]/div/div/div[8]/div/div/button[2]")).click();
+        driver.findElement(By.id("noticeType")).sendKeys("kiran_last_test_1");
+        Thread.sleep(3000);
+        driver.findElement(By.name("noticeDescription")).sendKeys("kiran_last_test_11");
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div/div")).click();
+        driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/input")).sendKeys("vipul");
+        driver.findElement(By.xpath("/html/body/div[4]/div[2]/div/div/div/label/span[1]/input")).click();
     }
 
 

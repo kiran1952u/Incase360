@@ -47,7 +47,8 @@ public class BulkSend {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[1]/div[1]/div/div")).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("/html/body/div[2]/div[1]/input")).sendKeys("vipul");
+        driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/input")).sendKeys("vipul");
+//        /html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div[1]/div/div/div/div[1]
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/span")).click();
         WebElement noticeTypeDropdown = driver.findElement(By.className("form-control"));
@@ -56,14 +57,14 @@ public class BulkSend {
         Select select = new Select(noticeTypeDropdown);
 
         // Select an option by visible text
-        select.selectByVisibleText("Parent_notice_17june1");
+        select.selectByVisibleText("Parent_July1");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div[3]/div/div"));
 
         // Click on the element
         element.click();
         Thread.sleep(1000);
-        WebElement element1 = driver.findElement(By.xpath("/html/body/div[2]/div/div[8]/span"));
+        WebElement element1 = driver.findElement(By.xpath("/html/body/div[2]/div/div[15]/span"));
 
 
         element1.click();
@@ -111,6 +112,7 @@ public class BulkSend {
         }
 
     }
+
 
 
 

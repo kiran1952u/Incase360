@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
+
 @Test
 public class AllNotice {
     public void Addnewnotice() throws InterruptedException {
@@ -52,10 +53,19 @@ public class AllNotice {
         driver.findElement(By.cssSelector("button[class='swal2-confirm swal2-styled swal2-default-outline']")).click();
 //        .swal2-actions > .swal2-confirm
 //        button[class='swal2-confirm swal2-styled swal2-default-outline']
-        Thread.sleep(3000);
         driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > button:nth-child(1)")).click();
         Thread.sleep(3000);
         driver.findElement(By.cssSelector("div[class='main-content'] li:nth-child(2) a:nth-child(1)")).click();
-//        driver.quit();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[3]/ul/li[2]/a")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/input")).sendKeys("Parent_July1");
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/button")).click();
+        Thread.sleep(4000);
+        driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1)")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[1]/div/div/ol/li[2]/a")).click();
+//        driver.quit();body > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1)
     }
 }

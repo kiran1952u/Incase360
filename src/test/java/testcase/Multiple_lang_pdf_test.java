@@ -58,12 +58,12 @@ public class Multiple_lang_pdf_test {
 
         // Select an option by visible text
         dropdown1.selectByVisibleText("Vipul_letterhead_3");
-        WebElement fileInput = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[1]/label[2]/input"));
-        // Provide the file path of the CSV file to be uploaded
-        String csvFilePath = "D:\\UploadDATA\\NOTICE  CVS SAME DATA\\hindi_kannad_panjabi_Marathi_combine_data_testing.csv";
+            WebElement fileInput = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[1]/label[2]/input"));
+            // Provide the file path of the CSV file to be uploaded
+            String csvFilePath = "D:\\UploadDATA\\NOTICE  CVS SAME DATA\\hindi_kannad_panjabi_Marathi_combine_data_testing.csv";
 
-        // Use sendKeys() method to upload the CSV file
-        fileInput.sendKeys(csvFilePath);
+            // Use sendKeys() method to upload the CSV file
+            fileInput.sendKeys(csvFilePath);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Test_0012");
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);

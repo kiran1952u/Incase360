@@ -56,7 +56,8 @@ public class Auto_download {
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[3]/div/div")).click();
         Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[1]/input")).sendKeys("test_pdf");
+        driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/input")).sendKeys("test_pdf");
+//        /html/body/div[3]/div[2]/div[1]/span
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/span")).click();
         WebDriverWait wait = new WebDriverWait(driver, 10); // 10 seconds timeout

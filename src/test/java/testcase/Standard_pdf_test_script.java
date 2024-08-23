@@ -46,7 +46,8 @@ public class Standard_pdf_test_script {
             driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div/div")).click();
             Thread.sleep(3000);
 
-            driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/input")).sendKeys("kiran");
+            driver.findElement(By.xpath("/html/body/div[2]/div[1]/input")).sendKeys("kiran");
+//            /html/body/div[2]/div[1]/input
 //            /html/body/div[2]/div[1]/input
             Thread.sleep(3000);
 
@@ -99,6 +100,7 @@ public class Standard_pdf_test_script {
     }
 
     public void refreshPage(ChromeDriver driver) {
+
         driver.navigate().refresh();
     }
 }
