@@ -72,7 +72,6 @@ public class Bulk_upload {
         parent_notice_apis bot = new parent_notice_apis();
         bot.parentApiEntry();
         refreshPage((ChromeDriver) driver);
-        refreshPage((ChromeDriver) driver);
     }
 
     public void refreshPage(ChromeDriver driver) {

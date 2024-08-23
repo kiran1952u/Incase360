@@ -45,7 +45,6 @@ public class parent_notice_apis {
         // Check the response code
         int responseCode = connection.getResponseCode();
         System.out.println("Response Code: " + responseCode);
-        System.out.println("Response Code: " + responseCode);
 
         // Close the connection
         connection.disconnect();
