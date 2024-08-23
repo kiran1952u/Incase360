@@ -1,5 +1,6 @@
 package testcase;
 
+import com.google.gson.internal.bind.util.ISO8601Utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -75,7 +76,10 @@ public class Bulk_upload {
     }
 
     public void refreshPage(ChromeDriver driver) {
+
         driver.navigate().refresh();
+        System.out.println("current refresh page");
     }
+
 
 }
