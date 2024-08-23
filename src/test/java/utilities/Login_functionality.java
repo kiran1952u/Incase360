@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.Test;
 
-@Test
+
+
 public class Login_functionality {
 
     public void Login(WebDriver driver) throws InterruptedException {

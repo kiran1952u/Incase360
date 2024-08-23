@@ -52,9 +52,9 @@ public class Autoreport_Parent_notice {
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[2]/div/div")).click();
         Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[1]/input")).sendKeys("parent_july1");
+        driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/input")).sendKeys("parent_july1");
         Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/span")).click();
+        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[15]/span")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[3]/div/div")).click();
         Thread.sleep(1000);
@@ -77,7 +77,6 @@ public class Autoreport_Parent_notice {
         driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/span")).click();
         Thread.sleep(3000);
         driver.findElement(By.cssSelector("button[type='submit']")).click();
-
         AutoreportAPI test1 = new AutoreportAPI();
         test1.setup();
         for (int i = 0; i < 5; i++) {
@@ -85,7 +84,6 @@ public class Autoreport_Parent_notice {
         }
         test1.testGetRequests();
     }
-
 
 }
 
