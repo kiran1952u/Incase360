@@ -40,19 +40,19 @@ public class Bulk_upload {
         Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div/div")).click();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/input")).sendKeys("vipul");
+        driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/input")).sendKeys("kiran");
         Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/span")).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select")).click();
-        WebElement option = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select/option[71]"));
+        WebElement option = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select/option[109]"));
         option.click();
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[3]/select")).click();
-        WebElement option1 = driver.findElement(By.xpath("//select/option[@value='79']"));
+        WebElement option1 = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[3]/select/option[4]"));
         // Click on the option
         option1.click();
         Thread.sleep(2000);
-        String filePath = "D:\\UploadDATA\\NOTICE  CVS SAME DATA\\hindi_kannad_panjabi_Marathi_combine_data_testing.csv";
+        String filePath = "D:\\UploadDATA\\Hindi , kannnda , panjabi   data notice\\Overdue Notice_csv_data.csv";
 
         // Locate the file input element
         WebElement fileInput = driver.findElement(By.xpath("//input[@type='file']"));
@@ -70,8 +70,8 @@ public class Bulk_upload {
         button.click();
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[2]/div/div[6]/button[1]")).click();
-        parent_notice_apis bot = new parent_notice_apis();
-        bot.parentApiEntry();
+        parent_notice_apis apistest = new parent_notice_apis();
+        apistest.parentApiEntry();
         refreshPage((ChromeDriver) driver);
     }
 

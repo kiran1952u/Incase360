@@ -1,23 +1,29 @@
 package utilities;
 
+import org.testng.annotations.Test;
+
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
+@Test
 public class parent_notice_apis {
+
+
     public void parentApiEntry() {
         try {
-            // URL for the first API
+
             String createNoticeUrl = "https://testapi.incase360.com/createNotice";
             // URL for the second API
             String createPdfUrl = "https://tools.incase360.com/notice-management-dev/create-pdf";
 
-            // Hit the first API 4 times
+
             for (int i = 0; i < 4; i++) {
                 sendPostRequest(createNoticeUrl);
+                System.out.println("create notice hits four times");
             }
-            // Hit the second API 4 times
+
                 sendPostRequest(createPdfUrl);
+            System.out.println("create pdf hites only once");
 
         } catch (Exception e) {
             throw new RuntimeException(e);
