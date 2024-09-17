@@ -12,7 +12,7 @@ import utilities.APITest;
 import java.util.concurrent.TimeUnit;
 
 @Test
-public class Multiple_lang_pdf_test {
+public class Multi_lang_notice_pdf_creation {
     //THis  script is for  multiple langues notice test
     public void UserAction() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();

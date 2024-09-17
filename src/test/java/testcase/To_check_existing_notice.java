@@ -2,36 +2,23 @@ package testcase;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.Login_functionality;
 
 import java.util.concurrent.TimeUnit;
 
 @Test
-public class ExistingNotice {
+public class To_check_existing_notice {
     public void Existing_notice() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver(options);
-        driver.get("https://test.incase360.com/login");
-        driver.manage().window().maximize();
-        Thread.sleep(1000);
-        driver.findElement(By.name("userName")).sendKeys("admin@incase360.com");
-        driver.findElement(By.name("userPassword")).sendKeys("1WbFG0Z84@");
-        Thread.sleep(1000);
-        WebElement e = driver.findElement(By.id("captchaanswer"));
-        System.out.println("This is the value" + e.getAttribute("innerHTML"));
-        Thread.sleep(1000);
-        driver.findElement(By.id("captcha")).sendKeys(e.getAttribute("innerHTML"));
-        Thread.sleep(1000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div[2]/section/main/div/div/div/div/div/div/div/form/div[4]/div[2]/button")).click();
+        Login_functionality test = new Login_functionality();
+        test.Login(driver);
         Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[5]/a")).click();
         Thread.sleep(3000);

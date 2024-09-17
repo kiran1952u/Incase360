@@ -8,10 +8,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import utilities.APITestStandard;
+import utilities.Login_functionality;
 
 import java.util.concurrent.TimeUnit;
 
-public class Standard_pdf_test_script {
+public class Standard_pdf_create_functionality {
 
     @Test
     public void UserAction() throws InterruptedException {
@@ -22,35 +23,18 @@ public class Standard_pdf_test_script {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         try {
-            driver.get("https://test.incase360.com/login");
-            driver.manage().window().maximize();
-
-            driver.findElement(By.name("userName")).sendKeys("admin@incase360.com");
-            driver.findElement(By.name("userPassword")).sendKeys("1WbFG0Z84@");
+            Login_functionality test = new Login_functionality();
+            test.Login(driver);
+            Thread.sleep(5000);
+            driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[6]/a")).click();
+            Thread.sleep(3000);
+            driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[6]/ul/li[1]/a")).click();
             Thread.sleep(3000);
 
-            WebElement e = driver.findElement(By.id("captchaanswer"));
-            String captchaValue = e.getAttribute("innerHTML");
-            driver.findElement(By.id("captcha")).sendKeys(captchaValue);
+            driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[1]/div/div")).click();
             Thread.sleep(3000);
-
-            driver.findElement(By.xpath("//*[@id=\"root\"]/div[2]/section/main/div/div/div/div/div/div/div/form/div[4]/div[2]/button")).click();
+            driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/input")).sendKeys("KIRAN");
             Thread.sleep(3000);
-
-            driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(1) > li:nth-child(6) > a:nth-child(1)")).click();
-            Thread.sleep(3000);
-
-            driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/ul/li[1]/a")).click();
-            Thread.sleep(3000);
-
-            driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div/div")).click();
-            Thread.sleep(3000);
-
-            driver.findElement(By.xpath("/html/body/div[2]/div[1]/input")).sendKeys("kiran");
-//            /html/body/div[2]/div[1]/input
-//            /html/body/div[2]/div[1]/input
-            Thread.sleep(3000);
-
             driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/span")).click();
             Thread.sleep(3000);
 

@@ -64,7 +64,7 @@ public class BulkSend {
         // Click on the element
         element.click();
         Thread.sleep(1000);
-        WebElement element1 = driver.findElement(By.xpath("/html/body/div[2]/div/div[15]/span"));
+        WebElement element1 = driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/span"));
 
 
         element1.click();
