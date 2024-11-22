@@ -64,7 +64,7 @@ public class Auto_download {
         WebElement dateTimeInput = wait.until(ExpectedConditions.elementToBeClickable(By.id("scheduled_on")));
         // Get the current date and time
         LocalDateTime currentDateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("DD-MM-YYYY'T'HH:mm"); // Format required for datetime-local input
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm a"); // Format required for datetime-local input
         String formattedDateTime = currentDateTime.format(formatter);
 
 

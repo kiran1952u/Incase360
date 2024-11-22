@@ -8,11 +8,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import utilities.APITest;
+import utilities.Login_functionality;
 
 import java.util.concurrent.TimeUnit;
 
 @Test
-public class Multi_lang_notice_pdf_creation {
+public class Multi_lang_notice_pdf_creation_for_express {
     //THis  script is for  multiple langues notice test
     public void UserAction() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
@@ -20,17 +21,8 @@ public class Multi_lang_notice_pdf_creation {
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver(options);
         driver.get("https://test.incase360.com/login");
-        driver.manage().window().maximize();
-        Thread.sleep(3000);
-        driver.findElement(By.name("userName")).sendKeys("admin@incase360.com");
-        driver.findElement(By.name("userPassword")).sendKeys("1WbFG0Z84@");
-        Thread.sleep(3000);
-        WebElement e = driver.findElement(By.id("captchaanswer"));
-        System.out.println("This is the value" + e.getAttribute("innerHTML"));
-        Thread.sleep(1000);
-        driver.findElement(By.id("captcha")).sendKeys(e.getAttribute("innerHTML"));
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div[2]/section/main/div/div/div/div/div/div/div/form/div[4]/div[2]/button")).click();
+        Login_functionality test = new Login_functionality();
+        test.Login(driver);
         Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/a")).click();
         Thread.sleep(3000);
@@ -38,7 +30,7 @@ public class Multi_lang_notice_pdf_creation {
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div/div")).click();
         Thread.sleep(3000);
-        driver.findElement(By.xpath("/html/body/div[2]/div[1]/input")).sendKeys("vipul");
+        driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/input")).sendKeys("kiran");
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/span")).click();
         Thread.sleep(3000);
@@ -49,7 +41,7 @@ public class Multi_lang_notice_pdf_creation {
         Select dropdown = new Select(dropdownElement);
 
         // Select an option by visible text
-        dropdown.selectByVisibleText("Parent_July1");
+        dropdown.selectByVisibleText("Tamil_kannnada_parent_2");
         Thread.sleep(3000);
         WebElement dropdownElement1 = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[3]/select"));
 
@@ -57,15 +49,15 @@ public class Multi_lang_notice_pdf_creation {
         Select dropdown1 = new Select(dropdownElement1);
 
         // Select an option by visible text
-        dropdown1.selectByVisibleText("Vipul_letterhead_3");
+        dropdown1.selectByVisibleText("kiran_letterhead3");
             WebElement fileInput = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[1]/label[2]/input"));
             // Provide the file path of the CSV file to be uploaded
-            String csvFilePath = "D:\\UploadDATA\\NOTICE  CVS SAME DATA\\hindi_kannad_panjabi_Marathi_combine_data_testing.csv";
+            String csvFilePath = "D:\\Tamil kannda issue 12092024\\Combine_tamil_kannada_csv_Data_proxy.csv";
 
             // Use sendKeys() method to upload the CSV file
             fileInput.sendKeys(csvFilePath);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Test_0012");
+        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Tamil_kannda_pdf_autoreport_01");
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[5]/button")).click();
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
@@ -76,7 +68,8 @@ public class Multi_lang_notice_pdf_creation {
         for (int i = 0; i < 5; i++) {
             apiTest.testCreateNotice();
         }
-        apiTest.testCreatePDFexpress();
+//        apiTest.testCreatePDFexpress();
+        apiTest.testCreatePDF1();
 
         refreshPage(driver);
 

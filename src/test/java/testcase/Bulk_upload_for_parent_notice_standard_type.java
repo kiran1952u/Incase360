@@ -1,6 +1,5 @@
 package testcase;
 
-import com.google.gson.internal.bind.util.ISO8601Utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -13,7 +12,7 @@ import org.testng.annotations.Test;
 import utilities.Login_functionality;
 import utilities.parent_notice_apis;
 
-public class Bulk_upload {
+public class Bulk_upload_for_parent_notice {
     private WebDriver driver;
 
     @BeforeClass
