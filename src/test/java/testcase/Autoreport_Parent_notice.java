@@ -47,7 +47,7 @@ public class Autoreport_Parent_notice {
         Thread.sleep(4000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[1]/div/div/div/div[1]")).click();
         Thread.sleep(4000);
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[1]/div/div")).sendKeys("vipul");
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[1]/div/div")).sendKeys("kiran");
 //           /html/body/div[3]/div[2]/div/span
         Thread.sleep(4000);
         WebElement element = driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/span"));
@@ -57,37 +57,35 @@ public class Autoreport_Parent_notice {
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[2]/div/div")).click();
         Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/input")).sendKeys("parent_july1");
+        driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/input")).sendKeys("Tamil_kannnada_parent_2");
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/span")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[3]/div/div")).click();
         Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[2]/span")).click();
+        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[5]/span")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[4]/input")).click();
-//        Thread.sleep(1000);
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm a");
-        String currentDateTime = now.format(formatter);
+        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        // Find the datetime-local input element
-        WebElement dateTimeInput = driver.findElement(By.id("report_on"));
+       driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[4]/input")).sendKeys("2024-09-23T13:45");
+        Thread.sleep(5000);
 
-        // Set the value to the current date and time
-        dateTimeInput.sendKeys(currentDateTime);
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[5]/div/div")).click();
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/span")).click();
-        Thread.sleep(3000);
-        driver.findElement(By.cssSelector("button[type='submit']")).click();
-//        AutoreportAPI test1 = new AutoreportAPI();
-//        test1.setup();
-//        for (int i = 0; i < 5; i++) {
-//            test1.setup();
-//        }
-//        test1.testGetRequests();
+
+        // Find the submit button (use XPath or another method if needed) and click it
+        WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
+        submitButton.click();
+        Thread.sleep(4000);
+        driver.findElement(By.xpath("/html/body/div[3]/div/div[6]/button[1]")).click();
+
+
+        AutoreportAPI test1 = new AutoreportAPI();
+        test1.setup();
+        for (int i = 0; i < 5; i++) {
+            test1.setup();
+        }
+        test1.testGetRequests();
         AutoreportAPI_for_parent_notice test2 = new AutoreportAPI_for_parent_notice();
         test2.setup();
         test2.testGetRequests();

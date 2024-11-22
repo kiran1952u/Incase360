@@ -1,6 +1,5 @@
 package testcase;
 
-import com.google.gson.internal.bind.util.ISO8601Utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -13,7 +12,7 @@ import org.testng.annotations.Test;
 import utilities.Login_functionality;
 import utilities.parent_notice_apis;
 
-public class Bulk_upload {
+public class Bulk_upload_for_parent_notice_standard_type {
     private WebDriver driver;
 
     @BeforeClass
@@ -45,14 +44,14 @@ public class Bulk_upload {
         driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/span")).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select")).click();
-        WebElement option = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select/option[109]"));
+        WebElement option = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select/option[88]"));
         option.click();
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[3]/select")).click();
         WebElement option1 = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[3]/select/option[4]"));
         // Click on the option
         option1.click();
         Thread.sleep(2000);
-        String filePath = "D:\\UploadDATA\\Hindi , kannnda , panjabi   data notice\\Overdue Notice_csv_data.csv";
+        String filePath = "D:\\Sandard_data\\Standard DATA\\Standard_api_pdf\\standard_data - Copy.csv";
 
         // Locate the file input element
         WebElement fileInput = driver.findElement(By.xpath("//input[@type='file']"));
@@ -63,7 +62,7 @@ public class Bulk_upload {
         // Upload the file by sending the file path to the input element
         fileInput.sendKeys(filePath);
         Thread.sleep(3000);
-        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Test_batch_004");
+        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Test_batch_op2");
         WebElement button = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[5]/button"));
 
         // Click on the button

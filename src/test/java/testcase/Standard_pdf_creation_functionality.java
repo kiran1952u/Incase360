@@ -12,7 +12,7 @@ import utilities.Login_functionality;
 
 import java.util.concurrent.TimeUnit;
 
-public class Standard_pdf_create_functionality {
+public class Standard_pdf_creation_functionality {
 
     @Test
     public void UserAction() throws InterruptedException {
@@ -52,7 +52,7 @@ public class Standard_pdf_create_functionality {
             String csvFilePath = "D:\\Sandard_data\\Standard DATA\\Standard_api_pdf\\standard_data.csv";
             fileInput.sendKeys(csvFilePath);
 
-            driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Test_Batch_op1");
+            driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Test_Batch_op2");
             driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[5]/button")).click();
             Thread.sleep(1000);
 

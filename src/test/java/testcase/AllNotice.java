@@ -2,10 +2,12 @@ package testcase;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
+import utilities.Login_functionality;
 
 import java.util.ArrayList;
 
@@ -29,7 +31,11 @@ public class AllNotice {
         Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@id=\"root\"]/div[2]/section/main/div/div/div/div/div/div/div/form/div[4]/div[2]/button")).click();
         Thread.sleep(3000);
-        driver.findElement(By.cssSelector("a[href='/admin/noticelist']")).click();
+        driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[2]/button[1]")).click();
+//        Login_functionality test  = new Login_functionality();
+//        test.Login();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[3]/a")).click();
         Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[3]/ul/li[1]/a")).click();
         Thread.sleep(3000);
@@ -66,6 +72,7 @@ public class AllNotice {
         driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1)")).click();
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[1]/div/div/ol/li[2]/a")).click();
+
 //        driver.quit();body > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1)
     }
 }

@@ -6,20 +6,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.Login_functionality;
 
-import java.sql.Driver;
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 @Test
-public class BulkSend {
+public class BulkSend_for_standard_notice {
 
     private WebDriver driver;
 
@@ -47,7 +42,7 @@ public class BulkSend {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[1]/div[1]/div/div")).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/input")).sendKeys("vipul");
+        driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/input")).sendKeys("kiran");
 //        /html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div[1]/div/div/div/div[1]
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/span")).click();
@@ -57,14 +52,14 @@ public class BulkSend {
         Select select = new Select(noticeTypeDropdown);
 
         // Select an option by visible text
-        select.selectByVisibleText("Parent_July1");
+        select.selectByVisibleText("Standard_api_pdf");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div[3]/div/div"));
 
         // Click on the element
         element.click();
         Thread.sleep(1000);
-        WebElement element1 = driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/span"));
+        WebElement element1 = driver.findElement(By.xpath("/html/body/div[2]/div/div[11]/span"));
 
 
         element1.click();

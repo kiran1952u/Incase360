@@ -1,7 +1,6 @@
 package testcase;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.restassured.internal.path.json.mapping.JsonPathJackson1ObjectDeserializer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,13 +13,11 @@ import org.testng.annotations.Test;
 import utilities.AutoDownloadAPI;
 import utilities.Login_functionality;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 @Test
-public class Auto_download {
+public class Auto_download_for_standard_notice {
     private WebDriver driver;
 
     @BeforeClass
@@ -64,7 +61,7 @@ public class Auto_download {
         WebElement dateTimeInput = wait.until(ExpectedConditions.elementToBeClickable(By.id("scheduled_on")));
         // Get the current date and time
         LocalDateTime currentDateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("DD-MM-YYYY'T'HH:mm"); // Format required for datetime-local input
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm a"); // Format required for datetime-local input
         String formattedDateTime = currentDateTime.format(formatter);
 
 
