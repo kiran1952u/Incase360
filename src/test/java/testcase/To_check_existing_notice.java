@@ -2,12 +2,15 @@ package testcase;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 import utilities.Login_functionality;
 
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @Test
@@ -19,42 +22,85 @@ public class To_check_existing_notice {
         ChromeDriver driver = new ChromeDriver(options);
         Login_functionality test = new Login_functionality();
         test.Login(driver);
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[5]/a")).click();
         Thread.sleep(3000);
-        driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[5]/a")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div[1]/div[1]/div/div[7]/div/div/button")).click();
         Thread.sleep(3000);
-        driver.findElement(By.xpath("//*[@id=\"layout-wrapper\"]/div[2]/div/div/div[2]/div[2]/div[2]/div[1]/div[1]/div/div[6]/div/div/button")).click();
+        driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[3]/button")).click();
         Thread.sleep(3000);
-        driver.findElement(By.cssSelector("svg[aria-label='close']")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div[1]/div[1]/div/div[8]/div/div/button")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[3]/button")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div[1]/div[1]/div/div[9]/div/div/a/button")).click();
+        Thread.sleep(3000);
+        JavascriptExecutor jsf = (JavascriptExecutor) driver;
+
+
+        jsf.executeScript("window.scrollBy(0,500)");
+        Thread.sleep(1000);
+//        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div[1]/button")).click();
+//        Thread.sleep(3000);
+//        driver.navigate().back();
+
+        String mainWindowHandle = driver.getWindowHandle();
+
+
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div[1]/button")).click(); // this opens a new tab
+
 
         Thread.sleep(3000);
-        driver.findElement(By.xpath("//*[@id=\"layout-wrapper\"]/div[2]/div/div/div[2]/div[2]/div[2]/div[1]/div[1]/div/div[7]/div/div/button")).click();
+
+
+        Set<String> allWindowHandles = driver.getWindowHandles();
+        for (String handle : allWindowHandles) {
+            if (!handle.equals(mainWindowHandle)) {
+                driver.switchTo().window(handle); // switch to the new tab
+                break;
+            }
+        }
+
+        // Step 7: Perform any actions on the new tab (e.g., open a PDF link)
+        driver.get("https://testapi.incase360.com/assets/upload/tempzipextract/1732258579_preview.pdf");
+
+        // Step 8: Close the new tab
+        driver.close();
+
+        // Step 9: Switch back to the main (original) window/tab
+        driver.switchTo().window(mainWindowHandle);
         Thread.sleep(3000);
-        driver.findElement(By.cssSelector("svg[aria-label='close']")).click();
+
+
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div[2]/span/a/button")).click();
         Thread.sleep(3000);
-        driver.findElement(By.cssSelector("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(8) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1) > button:nth-child(1)")).click();
+        JavascriptExecutor js32 = (JavascriptExecutor) driver;
+        js32.executeScript("window.scrollBy(0,500)");
         Thread.sleep(3000);
-        driver.findElement(By.xpath("//*[@id=\"layout-wrapper\"]/div[2]/div/div/div[1]/div/div/ol/li[2]/a")).click();
-        driver.findElement(By.xpath("//*[@id=\"layout-wrapper\"]/div[2]/div/div/div[2]/div[1]/div/div/input")).sendKeys("test2121");
-        driver.findElement(By.xpath("//*[@id=\"layout-wrapper\"]/div[2]/div/div/div[2]/div[1]/div/div/button")).click();
-        Thread.sleep(1000);
-        driver.findElement(By.xpath("//*[@id=\"layout-wrapper\"]/div[2]/div/div/div[2]/div[2]/div[2]/div[1]/div/div/div[8]/div/div/button[2]")).click();
-        Thread.sleep(1000);
-        driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[5]/a")).click();
-        driver.findElement(By.xpath("//*[@id=\"layout-wrapper\"]/div[2]/div/div/div[2]/div[1]/div/div/input")).sendKeys("kiran_last_test");
+        driver.findElement(By.cssSelector("samp[class='px-3'] input[name='sendAs']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div[5]/span/input")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div[5]/samp/input")).click();
         Thread.sleep(3000);
-        driver.findElement(By.xpath("//*[@id=\"layout-wrapper\"]/div[2]/div/div/div[2]/div[1]/div/div/button")).click();
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div[1]/div/div/div[8]/div/div/button[1]")).click();
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("/html/body/div[3]/div/div[6]/button[1]")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div[5]/span/input")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div[6]/div/div[2]/input")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div[6]/div/div[3]/input")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div[6]/div/div[2]/input")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div[6]/div/div[1]/input")).click();
         Thread.sleep(3000);
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div[1]/div/div/div[8]/div/div/button[2]")).click();
-        driver.findElement(By.id("noticeType")).sendKeys("kiran_last_test_1");
+        JavascriptExecutor js33 = (JavascriptExecutor) driver;
+        js33.executeScript("window.scrollBy(0,500)");
         Thread.sleep(3000);
-        driver.findElement(By.name("noticeDescription")).sendKeys("kiran_last_test_11");
-        Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div/div")).click();
-        driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/input")).sendKeys("vipul");
-        driver.findElement(By.xpath("/html/body/div[4]/div[2]/div/div/div/label/span[1]/input")).click();
+        JavascriptExecutor js34 = (JavascriptExecutor) driver;
+        js34.executeScript("window.scrollBy(0,500)");
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/button")).click();
+
     }
 
 

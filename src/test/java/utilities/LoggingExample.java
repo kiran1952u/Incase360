@@ -1,2 +1,4 @@
-package utilities;public class LoggingExample {
+package utilities;
+
+public class LoggingExample {
 }

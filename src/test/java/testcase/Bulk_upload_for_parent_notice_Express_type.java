@@ -13,7 +13,7 @@ import utilities.Login_functionality;
 import java.util.concurrent.TimeUnit;
 
 @Test
-public class Multi_lang_notice_pdf_creation_for_express {
+public class Bulk_upload_for_parent_notice_Express_type {
     //THis  script is for  multiple langues notice test
     public void UserAction() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();

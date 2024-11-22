@@ -15,7 +15,6 @@ import utilities.Login_functionality;
 public class Standard_Template_notice_creation {
 
     private static final Logger log = LoggerFactory.getLogger(Standard_Template_notice_creation.class);
-
     @Test(dataProvider = "userData")
     public void Addnewnotice(String noticeType, String noticeDescription) throws InterruptedException {
         // Set up ChromeDriver with options
@@ -25,6 +24,7 @@ public class Standard_Template_notice_creation {
         ChromeDriver driver = new ChromeDriver(options);
         Login_functionality test = new Login_functionality();
         test.Login(driver);
+        Thread.sleep(4000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[4]/a")).click();
         Thread.sleep(4000);
         WebElement element = driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[4]/ul/li[1]/a"));
