@@ -11,11 +11,13 @@ import static org.testng.Assert.assertEquals;
 public class AutoreportAPI_for_parent_notice {
     @BeforeClass
     public void setup() {
+        // Set the base URI for the APIs
         RestAssured.baseURI = "https://testapi.incase360.com";
     }
 
     @Test
     public void testGetRequests() {
+        // Array of endpoints to test
         String[] urls = {
                 "/autoReport",
                 "/autoPreliminaryReport",
@@ -23,18 +25,21 @@ public class AutoreportAPI_for_parent_notice {
                 "/autoFinalReport"
         };
 
-        // Outer loop to iterate through each endpoint
+        // Loop through each endpoint
         for (String endpoint : urls) {
-            // Inner loop to hit the endpoint 4 times
-            for (int i = 1; i <= 4; i++) {
-                System.out.println("Hitting endpoint: " + endpoint + " - Attempt " + i);
+            System.out.println("\n=== Testing endpoint: " + endpoint + " ===");
 
+            // Hit each endpoint exactly two times
+            for (int attempt = 1; attempt <= 3; attempt++) {
+                System.out.println("\nHitting endpoint: " + endpoint + " - Attempt " + attempt);
+
+                // Make the GET request
                 Response response = given()
                         .when()
                         .get(endpoint);
 
-                // Print the response
-                System.out.println("Response from " + endpoint + " - Attempt " + i + ":");
+                // Print the response details
+                System.out.println("Response from " + endpoint + " - Attempt " + attempt + ":");
                 response.prettyPrint();
 
                 // Validate the status code

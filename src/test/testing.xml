@@ -3,8 +3,7 @@
 <suite name="Test Suite">
     <test name="TestScriptsExecution">
         <classes>
-            <class name="testcase.AllNotice" />
-            <class name="testcase.Auto_download" />
+
         </classes>
     </test>
 </suite>

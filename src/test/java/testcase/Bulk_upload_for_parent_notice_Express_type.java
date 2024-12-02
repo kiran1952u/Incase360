@@ -52,7 +52,7 @@ public class Bulk_upload_for_parent_notice_Express_type {
         dropdown1.selectByVisibleText("kiran_letterhead3");
             WebElement fileInput = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[1]/label[2]/input"));
             // Provide the file path of the CSV file to be uploaded
-            String csvFilePath = "D:\\Tamil kannda issue 12092024\\Combine_tamil_kannada_csv_Data_proxy.csv";
+            String csvFilePath = "D:\\UploadDATA\\Tamil kannda paernt 2 notice DATA\\Combine_tamil_kannada_csv_Data_proxy.csv";
 
             // Use sendKeys() method to upload the CSV file
             fileInput.sendKeys(csvFilePath);

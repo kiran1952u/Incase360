@@ -21,7 +21,8 @@ public class AutoreportAPI {
                 "/autoReport",
                 "/autoPreliminaryReport",
                 "/autoInterimReport",
-                "/autoFinalReport"
+                "/autoFinalReport",
+
         };
 
         for (String endpoint : urls) {
