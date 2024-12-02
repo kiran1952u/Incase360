@@ -20,6 +20,7 @@ public class Standard_Template_notice_creation {
         // Set up ChromeDriver with options
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
+
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver(options);
         Login_functionality test = new Login_functionality();
