@@ -83,7 +83,7 @@ public class Autoreport_for_standard_notice {
         AutoreportAPI_for_parent_notice  testapi = new AutoreportAPI_for_parent_notice();
         testapi.setup();
         testapi.testGetRequests();
-
+        driver.navigate().refresh();
 
 
     }

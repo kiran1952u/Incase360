@@ -56,10 +56,10 @@ public class BulkSend_for_Express_notice {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div[3]/div/div"));
 
-        // Click on the element
+
         element.click();
         Thread.sleep(1000);
-        WebElement element1 = driver.findElement(By.xpath("/html/body/div[2]/div/div[6]/span"));
+        WebElement element1 = driver.findElement(By.xpath("/html/body/div[2]/div/div[9]/span"));
 
 
         element1.click();

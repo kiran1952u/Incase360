@@ -44,8 +44,10 @@ public class Bulk_upload_for_parent_notice_standard_type {
         driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/span")).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select")).click();
-        WebElement option = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select/option[88]"));
-        option.click();
+//        WebElement option = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select/option[88]"));
+
+        WebElement option2 = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select/option[88]"));
+        option2.click();
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[3]/select")).click();
         WebElement option1 = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[3]/select/option[4]"));
         // Click on the option
