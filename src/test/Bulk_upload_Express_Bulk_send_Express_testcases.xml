@@ -3,7 +3,8 @@
 <suite name="Test Suite">
     <test name="TestScriptsExecution">
         <classes>
-
+            <class name="testcase.Bulk_upload_for_parent_notice_Express_type"/>
+            <class name="testcase.BulkSend_for_Express_notice"/>
         </classes>
     </test>
 </suite>
