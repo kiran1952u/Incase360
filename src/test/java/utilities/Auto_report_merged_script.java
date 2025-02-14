@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 
-public class Proxy_combine_csv {
+public class Auto_report_merged_script {
 
         @BeforeClass
         public void setup () {
@@ -39,5 +39,12 @@ public class Proxy_combine_csv {
 
             assertEquals(statusCode / 100, 2, "Expected 2xx status code but got " + statusCode);
         }
+            try {
+                Thread.sleep(1000); // Sleep for 1 second between requests
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+
+
+            }
     }
     }

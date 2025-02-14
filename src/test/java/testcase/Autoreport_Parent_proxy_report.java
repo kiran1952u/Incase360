@@ -9,8 +9,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.AutoreportAPI_for_parent_notice;
-import utilities.Login_functionality;
-import utilities.Proxy_combine_csv;
+import utilities.Login_functionality_admin;
+import utilities.Auto_report_merged_script;
 
 import java.util.concurrent.TimeUnit;
 
@@ -35,7 +35,7 @@ public class Autoreport_Parent_proxy_report {
 
     public void main() throws InterruptedException {
 
-        Login_functionality test = new Login_functionality();
+        Login_functionality_admin test = new Login_functionality_admin();
         test.Login(driver);
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[11]/a")).click();
@@ -54,9 +54,9 @@ public class Autoreport_Parent_proxy_report {
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[2]/div/div")).click();
         Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/input")).sendKeys("Gujrati_tamil_marathi_parent_express");
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/span/span/mark")).click();
+        driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/input")).sendKeys("Gujra");
+        Thread.sleep(6000);
+        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[5]/span")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[3]/div/div/div/div[1]")).click();
         Thread.sleep(1000);
@@ -86,7 +86,7 @@ public class Autoreport_Parent_proxy_report {
         AutoreportAPI_for_parent_notice test2 = new AutoreportAPI_for_parent_notice();
         test2.setup();
         test2.testGetRequests();
-        Proxy_combine_csv test1 = new Proxy_combine_csv ();
+        Auto_report_merged_script test1 = new Auto_report_merged_script();
         test1.setup();
         test1.testGetRequestsOnce();
         driver.get("https://test.incase360.com/admin/auto-report");

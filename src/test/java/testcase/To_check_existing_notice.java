@@ -3,15 +3,12 @@ package testcase;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
-import utilities.Login_functionality;
+import utilities.Login_functionality_admin;
 
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 @Test
 public class To_check_existing_notice {
@@ -20,7 +17,7 @@ public class To_check_existing_notice {
         options.addArguments("--remote-allow-origins=*");
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver(options);
-        Login_functionality test = new Login_functionality();
+        Login_functionality_admin test = new Login_functionality_admin();
         test.Login(driver);
         Thread.sleep(5000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[5]/a")).click();

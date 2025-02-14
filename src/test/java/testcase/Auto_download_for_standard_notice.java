@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.AutoDownloadAPI;
-import utilities.Login_functionality;
+import utilities.Login_functionality_admin;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -34,12 +34,12 @@ public class Auto_download_for_standard_notice {
     }
 
     public void loginPage() throws InterruptedException {
-        Login_functionality test = new Login_functionality();
+        Login_functionality_admin test = new Login_functionality_admin();
         test.Login(driver);
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[12]/a")).click();
         Thread.sleep(3000);
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[1]/div/div")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[2]/div/div/div/div[1]")).click();
         Thread.sleep(3000);
         driver.findElement(By.cssSelector("input[placeholder='Search']")).sendKeys("vipul");
         Thread.sleep(3000);

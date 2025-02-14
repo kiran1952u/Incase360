@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import utilities.Login_functionality;
+import utilities.Login_functionality_admin;
 
 public class Standard_Template_notice_creation {
 
@@ -23,7 +23,7 @@ public class Standard_Template_notice_creation {
 
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver(options);
-        Login_functionality test = new Login_functionality();
+        Login_functionality_admin test = new Login_functionality_admin();
         test.Login(driver);
         Thread.sleep(4000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[4]/a")).click();
