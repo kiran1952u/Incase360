@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import utilities.Login_functionality;
+import utilities.Login_functionality_admin;
 
 import java.util.concurrent.TimeUnit;
 
@@ -33,7 +33,7 @@ public class BulkSend_for_standard_notice {
 
     @Test
     public void loginPage() throws InterruptedException {
-        Login_functionality test = new Login_functionality();
+        Login_functionality_admin test = new Login_functionality_admin();
         test.Login(driver);
         Thread.sleep(5000);
         driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/a")).click();
@@ -55,16 +55,16 @@ public class BulkSend_for_standard_notice {
         select.selectByVisibleText("Chaitanya_marathi_notice_standard");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 //        WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div[3]/div/div"));
-        WebElement element3=driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[1]/div[2]/select/option[88]"));
-
+        WebElement element3=driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[1]/div[2]/select/option[86]"));
         // Click on the element
         element3.click();
         Thread.sleep(1000);
         WebElement element1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div[3]/div/div/div/div[1]"));
         element1.click();
-        driver.findElement(By.xpath("/html/body/div[2]/div/div/span")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("/html/body/div[2]/div/div[11]/span")).click();
         driver.findElement(By.cssSelector("button[class='btn btn-primary']")).click();
-//        driver.findElement(By.cssSelector("button[class='swal2-confirm swal2-styled swal2-default-outline']")).click();
+        driver.findElement(By.cssSelector("button[class='swal2-confirm swal2-styled swal2-default-outline']")).click();
 
 //        String baseNoticeId = "IN3155-";
 //

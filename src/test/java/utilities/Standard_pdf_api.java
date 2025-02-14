@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class APITestStandard {
+public class Standard_pdf_api {
 
     @BeforeClass
     public void setup() {
@@ -51,4 +51,20 @@ public class APITestStandard {
 
         response.prettyPrint();
     }
-}
+        @Test
+        public void testSendScheduledNotice() { // New API test method
+            String requestBody = "{ \"noticeId\": \"12345\", \"scheduleTime\": \"2025-01-18T10:00:00\" }"; // Sample request body
+
+            Response response = given()
+                    .body(requestBody)
+                    .header("Content-Type", "application/json") // Set the required content type
+                    .when()
+                    .post("/sendScheduledNotice");
+
+            response.then()
+                    .statusCode(200); // Adjust the expected status code based on API requirements
+
+            response.prettyPrint(); // Print the response to the console
+        }
+    }
+

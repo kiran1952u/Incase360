@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import utilities.APITest;
-import utilities.Login_functionality;
+import utilities.Login_functionality_admin;
 
 import java.util.concurrent.TimeUnit;
 
@@ -21,7 +21,7 @@ public class Bulk_upload_for_parent_notice_Express_type {
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver(options);
         driver.get("https://test.incase360.com/login");
-        Login_functionality test = new Login_functionality();
+        Login_functionality_admin test = new Login_functionality_admin();
         test.Login(driver);
         Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/a")).click();
@@ -57,7 +57,7 @@ public class Bulk_upload_for_parent_notice_Express_type {
             // Use sendKeys() method to upload the CSV file
             fileInput.sendKeys(csvFilePath);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Tamil_kannda_Batch_upload");
+        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Tamil_kannda_auto_report_01");
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[5]/button")).click();
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);

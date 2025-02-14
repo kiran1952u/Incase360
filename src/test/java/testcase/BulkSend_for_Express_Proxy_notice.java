@@ -9,12 +9,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import utilities.Login_functionality;
+import utilities.Login_functionality_admin;
 
 import java.util.concurrent.TimeUnit;
 
 @Test
-public class BulkSend_for_Express_notice {
+public class BulkSend_for_Express_Proxy_notice {
 
     private WebDriver driver;
 
@@ -33,7 +33,7 @@ public class BulkSend_for_Express_notice {
 
     @Test
     public void loginPage() throws InterruptedException {
-        Login_functionality test = new Login_functionality();
+        Login_functionality_admin test = new Login_functionality_admin();
         test.Login(driver);
         Thread.sleep(5000);
         driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/a")).click();

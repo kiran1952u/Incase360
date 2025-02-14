@@ -9,9 +9,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import utilities.Login_functionality;
+import utilities.Login_functionality_admin;
 import utilities.parent_notice_apis;
-
+@Test
 public class Bulk_upload_for_parent_notice_standard_type {
     private WebDriver driver;
 
@@ -30,7 +30,7 @@ public class Bulk_upload_for_parent_notice_standard_type {
 
     @Test
     public void loginPage() throws InterruptedException {
-        Login_functionality test = new Login_functionality();
+        Login_functionality_admin test = new Login_functionality_admin();
         test.Login(driver);
         Thread.sleep(5000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[6]/a")).click();

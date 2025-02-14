@@ -2,7 +2,6 @@ package testcase;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,10 +9,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.AutoreportAPI_for_parent_notice;
-import utilities.Login_functionality;
+import utilities.Login_functionality_admin;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 
 @Test
@@ -37,7 +34,7 @@ public class Autoreport_for_standard_notice {
 
     public void main() throws InterruptedException {
 
-        Login_functionality test = new Login_functionality();
+        Login_functionality_admin test = new Login_functionality_admin();
         test.Login(driver);
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[11]/a")).click();
@@ -60,7 +57,7 @@ public class Autoreport_for_standard_notice {
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[3]/div/div/div/div[1]")).click();
         driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/input")).sendKeys("date");
-        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/span/span")).click();
+        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/span")).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[4]/input")).sendKeys("2024-09-23T13:45");

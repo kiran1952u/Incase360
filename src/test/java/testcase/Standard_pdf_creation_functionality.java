@@ -7,8 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
-import utilities.APITestStandard;
-import utilities.Login_functionality;
+import utilities.Standard_pdf_api;
+import utilities.Login_functionality_admin;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +23,7 @@ public class Standard_pdf_creation_functionality {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         try {
-            Login_functionality test = new Login_functionality();
+            Login_functionality_admin test = new Login_functionality_admin();
             test.Login(driver);
             Thread.sleep(5000);
             driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[6]/a")).click();
@@ -59,7 +59,7 @@ public class Standard_pdf_creation_functionality {
             driver.findElement(By.xpath("/html/body/div[2]/div/div[6]/button[1]")).click();
 
 
-            APITestStandard apiTest = new APITestStandard();
+            Standard_pdf_api apiTest = new Standard_pdf_api();
             apiTest.setup();
 
 
