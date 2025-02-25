@@ -38,12 +38,8 @@ public class Letterhead_approved {
         Thread.sleep(2000);
         WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[9]/a/span"));
 
-        // Click the element
         element.click();
-//        WebElement inputElement = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/input"));
 //
-//        // Send the value to the input element
-//        inputElement.sendKeys("kiran");
         JavascriptExecutor jsf = (JavascriptExecutor) driver;
 
 
@@ -57,38 +53,17 @@ public class Letterhead_approved {
         // Click the button element
         buttonElement.click();
         Thread.sleep(3000);
-//        WebElement buttonElement1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div[1]/div[1]/div/div[10]/div/div/button"));
-//
-//        // Scroll to the element if needed
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("arguments[0].scrollIntoView(true);", buttonElement);
-//
-//        // Click the button element
-//        buttonElement1.click();
-//        Thread.sleep(3000);
-//        ((JavascriptExecutor) driver).executeScript("window.open('https://testapi.incase360.com/assets/upload/tempzipextract/1738577728_preview.pdf', '_blank');");
-//
-//        // Switch to the new tab
-//        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-//        driver.switchTo().window(tabs.get(1));
-//
-//        // Close the current tab
-//        driver.close();
-//
-//        // Switch back to the original tab
-//        driver.switchTo().window(tabs.get(0));
-//        Thread.sleep(2000);
-        Actions actions = new Actions(driver);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 500);");
+        Thread.sleep(2000);
+        WebElement element1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div[2]/div"));
+        js.executeScript("arguments[0].scrollIntoView(true);", element1);
 
-        // Find the element to scroll to
-        WebElement element1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]"));
+        // Scroll to the bottom of the page
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
 
-        // Scroll to the specific element using Actions class
-        actions.moveToElement(element).perform();
-
-        // Alternatively, use JavaScript to scroll to the element
-        JavascriptExecutor js1 = (JavascriptExecutor) driver;
-        js1.executeScript("arguments[0].scrollIntoView(true);", element1);
+        // Scroll to the top of the page
+        js.executeScript("window.scrollTo(0, 0);");
 
 
 
