@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Test
-public class Auto_download_for_standard_notice {
+public class Auto_downlaod_with_tracking_pdf {
     private WebDriver driver;
 
     @BeforeClass
@@ -43,34 +43,27 @@ public class Auto_download_for_standard_notice {
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[1]/div/div")).click();
         Thread.sleep(1000);
+
+
         driver.findElement(By.cssSelector("input[placeholder='Search']")).sendKeys("vipul");
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/span")).click();
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[2]/div/div")).click();
         Thread.sleep(3000);
-        driver.findElement(By.cssSelector("input[placeholder='Search']")).sendKeys("standard_notice_3");
-        Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/span")).click();
+        driver.findElement(By.cssSelector("input[placeholder='Search']")).sendKeys("multiple_coborrower_standard");
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/span")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[3]/div/div")).click();
         Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/input")).sendKeys("test_pdf");
-//        /html/body/div[3]/div[2]/div[1]/span
+        driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/input")).sendKeys("Test_auto_downlaod");
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/span")).click();
-//        WebDriverWait wait = new WebDriverWait(driver, 10); // 10 seconds timeout
-//        WebElement dateTimeInput = wait.until(ExpectedConditions.elementToBeClickable(By.id("scheduled_on")));
-//        // Get the current date and time
-//        LocalDateTime currentDateTime = LocalDateTime.now();
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm a"); // Format required for datetime-local input
-//        String formattedDateTime = currentDateTime.format(formatter);
-//
-//
-//        // Set the current date and time into the input field
-//        dateTimeInput.sendKeys(formattedDateTime);
-//        Thread.sleep(3000);
-
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[4]/div/div/div/div[1]/span")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/span")).click();
 
         WebDriverWait wait = new WebDriverWait(driver, 10); // 10 seconds timeout
         WebElement dateTimeInput = wait.until(ExpectedConditions.elementToBeClickable(By.id("scheduled_on")));
