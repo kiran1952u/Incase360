@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
-
+@Test
 public class Login_functionality_user {
     public void Login1(WebDriver driver) throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
@@ -25,7 +25,7 @@ public class Login_functionality_user {
         WebElement captchaElement = driver.findElement(By.id("captchaanswer"));
         String captchaValue = captchaElement.getAttribute("innerHTML");
         driver.findElement(By.id("captcha")).sendKeys(captchaValue);
-
+        Thread.sleep(3000);
         WebElement loginButton = driver.findElement(By.xpath("//*[@id=\"root\"]/div[2]/section/main/div/div/div/div/div/div/div/form/div[4]/div[2]/button"));
         loginButton.click();
         driver.manage().window().maximize();

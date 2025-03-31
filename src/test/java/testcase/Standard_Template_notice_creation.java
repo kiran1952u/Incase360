@@ -90,11 +90,11 @@ public class Standard_Template_notice_creation {
     public Object[][] userData() {
         return new Object[][]{
                 {"Test_font_test8", "Test_font_test9"},
-//                {"Test_font_test10", "Test_font_test11"},
-//                {"Test_font_test12", "Test_font_test13"},
-//                {"Test_font_test14", "Test_font_test15"},
-//                {"Test_font_test16", "Test_font_test17"}
-//
+                {"Test_font_test10", "Test_font_test11"},
+                {"Test_font_test12", "Test_font_test13"},
+                {"Test_font_test14", "Test_font_test15"},
+                {"Test_font_test16", "Test_font_test17"}
+
         };
     }
 }

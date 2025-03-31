@@ -11,6 +11,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.Login_functionality_admin;
 import utilities.parent_notice_apis;
+
+import java.util.UUID;
+
 @Test
 public class Bulk_upload_for_parent_notice_standard_type {
     private WebDriver driver;
@@ -39,21 +42,22 @@ public class Bulk_upload_for_parent_notice_standard_type {
         Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div/div")).click();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/input")).sendKeys("kiran");
+        driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/input")).sendKeys("vipul");
         Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/span")).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select")).click();
+
 //        WebElement option = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select/option[88]"));
 
-        WebElement option2 = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select/option[88]"));
+        WebElement option2 = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select/option[28]"));
         option2.click();
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[3]/select")).click();
         WebElement option1 = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[3]/select/option[4]"));
         // Click on the option
         option1.click();
         Thread.sleep(2000);
-        String filePath = "D:\\Sandard_data\\Standard DATA\\Standard_api_pdf\\standard_data - Copy.csv";
+        String filePath = "D:\\coborrower data with format\\MIS test DATA\\Batch_03.csv";
 
         // Locate the file input element
         WebElement fileInput = driver.findElement(By.xpath("//input[@type='file']"));
@@ -64,12 +68,13 @@ public class Bulk_upload_for_parent_notice_standard_type {
         // Upload the file by sending the file path to the input element
         fileInput.sendKeys(filePath);
         Thread.sleep(3000);
-        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Test_batch_op2");
+        String batchName = "standard_batch_MSI_" + UUID.randomUUID().toString().substring(0, 8);
+        driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys(batchName);
         WebElement button = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[5]/button"));
 
         // Click on the button
         button.click();
-        Thread.sleep(3000);
+        Thread.sleep(6000);
         driver.findElement(By.xpath("/html/body/div[2]/div/div[6]/button[1]")).click();
         parent_notice_apis apistest = new parent_notice_apis();
         apistest.parentApiEntry();

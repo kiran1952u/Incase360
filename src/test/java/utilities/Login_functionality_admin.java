@@ -27,7 +27,7 @@ public class Login_functionality_admin {
     WebElement captchaElement = driver.findElement(By.id("captchaanswer"));
     String captchaValue = captchaElement.getAttribute("innerHTML");
     driver.findElement(By.id("captcha")).sendKeys(captchaValue);
-
+    Thread.sleep(3000);
     WebElement loginButton = driver.findElement(By.xpath("//*[@id=\"root\"]/div[2]/section/main/div/div/div/div/div/div/div/form/div[4]/div[2]/button"));
     loginButton.click();
     driver.manage().window().maximize();
