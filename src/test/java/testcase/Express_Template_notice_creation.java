@@ -107,10 +107,7 @@ public class Express_Template_notice_creation {
 
         fileInput.sendKeys(csvFilePath);
         Thread.sleep(3000);
-        JavascriptExecutor jsf = (JavascriptExecutor) driver;
 
-
-        js.executeScript("window.scrollBy(0,500)");
         Thread.sleep(3000);
         JavascriptExecutor js1 = (JavascriptExecutor) driver;
 

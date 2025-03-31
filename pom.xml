@@ -4,25 +4,23 @@
     <groupId>dd</groupId>
     <artifactId>kiranAutomationCodePrac</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <!-- Selenium Dependency -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.4.0</version>
         </dependency>
+
+        <!-- WebDriverManager Dependency -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>LATEST</version>
+            <version>5.5.3</version>
         </dependency>
 
-
-
-
-
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <!-- TestNG Dependency -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -30,59 +28,42 @@
             <scope>test</scope>
         </dependency>
 
-
-
-
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <!-- Apache POI Dependency for Excel Files -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>5.2.2</version>
         </dependency>
 
-
-
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+        <!-- Apache POI OOXML Dependency -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>5.2.2</version>
         </dependency>
 
-
-
-
-        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <!-- Commons IO Dependency -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.11.0</version>
         </dependency>
 
-
-        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
-        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
-        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>5.6.3</version>
-        </dependency>
-
-
-        <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+        <!-- ExtentReports Dependency for HTML Reports -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
             <version>3.1.5</version>
         </dependency>
+
+        <!-- Tess4J (OCR library) Dependency -->
         <dependency>
             <groupId>net.sourceforge.tess4j</groupId>
             <artifactId>tess4j</artifactId>
             <version>4.5.5</version>
         </dependency>
 
-
+        <!-- SLF4J Logging API -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -93,13 +74,8 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.21</version>
         </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.github.sdrss/reportng -->
+
+        <!-- ReportNG Dependency for TestNG Reports -->
         <dependency>
             <groupId>com.github.sdrss</groupId>
             <artifactId>reportng</artifactId>
@@ -107,45 +83,25 @@
             <scope>test</scope>
         </dependency>
 
-
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
-        </dependency>
-
-
-
-
-        <!-- Selenium dependency -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.0.0</version>
-        </dependency>
-        <!-- RestAssured dependency -->
+        <!-- RestAssured Dependency for API Testing -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>4.4.0</version>
         </dependency>
-        <!-- TestNG dependency -->
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.4.0</version>
-            <scope>test</scope>
-        </dependency>
+
+        <!-- OpenCSV Dependency for CSV Parsing -->
         <dependency>
             <groupId>com.opencsv</groupId>
             <artifactId>opencsv</artifactId>
             <version>5.7.1</version>
         </dependency>
 
-        </dependencies>
+    </dependencies>
+
     <build>
-        <!--        <sourceDirectory></sourceDirectory>-->
         <plugins>
+            <!-- Maven Compiler Plugin -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
@@ -155,5 +111,9 @@
             </plugin>
         </plugins>
     </build>
-</project>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+</project>
