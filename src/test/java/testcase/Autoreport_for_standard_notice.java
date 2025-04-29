@@ -56,7 +56,7 @@ public class Autoreport_for_standard_notice {
         driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[2]/span")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[3]/div/div/div/div[1]")).click();
-        driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/input")).sendKeys("date");
+        driver.findElement(By.xpath("/html/body/div[3]/div[1]/div/input")).sendKeys("standard_batch_MSI_01");
         driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/span")).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
