@@ -9,8 +9,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 import utilities.Login_functionality_admin;
 
-import java.util.Set;
-
 @Test
 public class To_check_existing_notice {
     public void Existing_notice() throws InterruptedException {
@@ -36,10 +34,8 @@ public class To_check_existing_notice {
         JavascriptExecutor jsf = (JavascriptExecutor) driver;
         jsf.executeScript("window.scrollBy(0,500)");
         Thread.sleep(1000);
-
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/form/div[3]/div[1]/button")).click();
-        Thread.sleep(3000);// this opens a new tab
-        driver.navigate().back();
+
 
     }
 
