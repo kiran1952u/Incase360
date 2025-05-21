@@ -26,7 +26,6 @@ public class Bulk_upload_for_parent_notice_standard_type {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-gpu");
-        // options.addArguments("--headless"); // Uncomment if running on a headless server
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
     }
@@ -35,6 +34,7 @@ public class Bulk_upload_for_parent_notice_standard_type {
     public void loginPage() throws InterruptedException {
         Login_functionality_admin test = new Login_functionality_admin();
         test.Login(driver);
+
         Thread.sleep(5000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[6]/a")).click();
         Thread.sleep(2000);
@@ -48,44 +48,34 @@ public class Bulk_upload_for_parent_notice_standard_type {
         Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select")).click();
 
-//        WebElement option = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select/option[88]"));
-
         WebElement option2 = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select/option[28]"));
         option2.click();
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[3]/select")).click();
-        WebElement option1 = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[3]/select/option[4]"));
-        // Click on the option
+        WebElement option1 = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[3]/select/option[2]"));
         option1.click();
         Thread.sleep(2000);
+
         String filePath = "D:\\coborrower data with format\\MIS test DATA\\Batch_03.csv";
-
-        // Locate the file input element
         WebElement fileInput = driver.findElement(By.xpath("//input[@type='file']"));
-
-        // Scroll the element into view
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", fileInput);
-
-        // Upload the file by sending the file path to the input element
         fileInput.sendKeys(filePath);
         Thread.sleep(3000);
+
         String batchName = "standard_batch_MSI_" + UUID.randomUUID().toString().substring(0, 8);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys(batchName);
-        WebElement button = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[5]/button"));
 
-        // Click on the button
+        WebElement button = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[5]/button"));
         button.click();
         Thread.sleep(6000);
+
         driver.findElement(By.xpath("/html/body/div[2]/div/div[6]/button[1]")).click();
+
+        // API trigger
         parent_notice_apis apistest = new parent_notice_apis();
         apistest.parentApiEntry();
-        refreshPage((ChromeDriver) driver);
-    }
 
-    public void refreshPage(ChromeDriver driver) {
 
         driver.navigate().refresh();
-        System.out.println("current refresh page");
+        System.out.println("Page refreshed");
     }
-
-
 }
