@@ -14,7 +14,7 @@ public class parent_notice_apis {
 
             String createNoticeUrl = "https://testapi.incase360.com/createNotice";
             // URL for the second API
-            String createPdfUrl = "https://testapi.incase360.com/createPdf";
+            String createPdfUrl = "https://tools.incase360.com/notice-management-dev/create-pdf";
 
 
             for (int i = 0; i < 4; i++) {
