@@ -3,25 +3,23 @@ package utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
-
-public class Login_functionality_admin {
-@Test
+public class Login_admin_live {
+    @Test
     public void Login(WebDriver driver) throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        driver.get("https://test.incase360.com/login");
+        driver.get("https://incase360.com/login");
         Thread.sleep(5000);
 
         // Login process
         WebElement usernameField = driver.findElement(By.name("userName"));
-        usernameField.sendKeys("admin@incase360.com");
+        usernameField.sendKeys("notice@incase360.com");
 
         WebElement passwordField = driver.findElement(By.name("userPassword"));
-        passwordField.sendKeys("1WbFG0Z84@");
+        passwordField.sendKeys("inAB@gyuh/P4?myi1");
         Thread.sleep(3000);
 
         WebElement captchaElement = driver.findElement(By.id("captchaanswer"));
@@ -55,5 +53,3 @@ public class Login_functionality_admin {
 
     }
 }
-
-
