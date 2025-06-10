@@ -1,7 +1,10 @@
+testcase\AutoDownlaod_withtracking_Notice_live.class
 utilities\Loginpage.class
 testcase\Letterhead_approved.class
 testcase\Autodownlaod_with_tracking.class
+utilities\Login_admin_live.class
 testcase\Bulk_upload_for_parent_notice_standard_type.class
+testcase\RefIdSearchTest.class
 utilities\LoggingExample.class
 utilities\AutoreportAPI_for_parent_notice.class
 utilities\Auto_report_merged_script.class
@@ -21,9 +24,11 @@ testcase\Autoreport_for_standard_notice.class
 utilities\Apiforgenerateautoreportstandard.class
 testcase\AllNotice.class
 testcase\Standard_Template_notice_creation.class
+testcase\AutoDownlaod_withtracking_Express_notice.class
 testcase\Express_Template_notice_creation.class
 testcase\Letterhead_e2e.class
 utilities\Login_functionality_admin.class
+testcase\UserRefIdSearch.class
 utilities\AutoDownloadAPI.class
 testcase\BulkSend_for_Express_Proxy_notice.class
 utilities\Login_functionality_user.class
