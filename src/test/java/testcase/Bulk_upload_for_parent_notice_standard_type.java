@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.Login_functionality_admin;
-import utilities.parent_notice_apis;
+import utilities.Proxy_pdf_generation;
 
 import java.util.UUID;
 
@@ -33,7 +33,7 @@ public class Bulk_upload_for_parent_notice_standard_type {
     @Test
     public void loginPage() throws InterruptedException {
         Login_functionality_admin test = new Login_functionality_admin();
-        test.Login(driver);
+        test.loginTest(driver);
 
         Thread.sleep(5000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[6]/a")).click();
@@ -71,7 +71,7 @@ public class Bulk_upload_for_parent_notice_standard_type {
         driver.findElement(By.xpath("/html/body/div[2]/div/div[6]/button[1]")).click();
 
         // API trigger
-        parent_notice_apis apistest = new parent_notice_apis();
+        Proxy_pdf_generation apistest = new Proxy_pdf_generation();
         apistest.parentApiEntry();
 
 

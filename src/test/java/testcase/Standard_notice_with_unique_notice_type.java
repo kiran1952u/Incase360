@@ -32,7 +32,7 @@ public class Standard_notice_with_unique_notice_type {
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver(options);
         Login_functionality_admin test = new Login_functionality_admin();
-        test.Login(driver);
+        test.loginTest(driver);
         Thread.sleep(4000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[4]/a")).click();
         Thread.sleep(4000);

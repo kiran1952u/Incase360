@@ -1,7 +1,6 @@
 testcase\AutoDownlaod_withtracking_Notice_live.class
 utilities\Loginpage.class
 testcase\Letterhead_approved.class
-testcase\Autodownlaod_with_tracking.class
 utilities\Login_admin_live.class
 testcase\Bulk_upload_for_parent_notice_standard_type.class
 testcase\RefIdSearchTest.class
@@ -15,7 +14,6 @@ utilities\API_notice_all_api.class
 utilities\APITest.class
 utilities\Logger.class
 testcase\To_check_existing_notice.class
-utilities\parent_notice_apis.class
 testcase\Autoreport_Parent_proxy_report.class
 testcase\BulkSend_for_standard_notice.class
 utilities\Standard_pdf_api.class

@@ -3,59 +3,80 @@ package testcase;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import utilities.Login_functionality_user;
+
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class UserRefIdSearch {
     WebDriver driver;
 
-    @BeforeMethod
+    @Test
     public void setup() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
+
+        // ✅ Incognito Mode
+        options.addArguments("--incognito");
+
+        // ✅ Allow cross-origin
         options.addArguments("--remote-allow-origins=*");
+
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
 
-        // Login to user panel
+        // ✅ Login
         Login_functionality_user login = new Login_functionality_user();
         login.Login1(driver);
+        Thread.sleep(2000);
+        driver.navigate().refresh();
+
+        // ✅ Navigate and perform actions
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[5]/a")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/button[2]")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[2]/div[3]/textarea"))
+                .sendKeys("NM7988\nSQ4400\nKL2819\nQS2949\nQE9400\nJO5566");
+        driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[2]/div[5]/button[2]")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[3]/div[1]/div/div/div[1]/div/div/div/div/label/span[1]/input")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/button[1]")).click();
     }
 
-    @Test
-    public void performRefIdSearchFlow() throws InterruptedException {
-        // Navigate to RefID Search page
-        driver.get("https://test.incase360.com/user/refidsearch");
-        Thread.sleep(2000);
+    @AfterClass
+    public void callAutoDownloadNoticeAPI() {
+        try {
+            URL url = new URL("https://testapi.incase360.com/autoDownloadNotice");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-        // Click the first action button
-        WebElement firstActionButton = driver.findElement(By.xpath("//button[contains(@class, 'action-button')]"));
-        firstActionButton.click();
-        Thread.sleep(1000);
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setDoOutput(true);
 
-        // Find and paste text into the textarea (simulate Ctrl+V manually if needed)
-        WebElement textArea = driver.findElement(By.xpath("//textarea[@type='textarea']"));
-        textArea.sendKeys("YOUR_REF_ID_HERE"); // Replace with actual Ref ID or simulate clipboard content
-        Thread.sleep(1000);
 
-        // Click the primary Search/Submit button
-        WebElement searchButton = driver.findElement(By.xpath("//button[contains(@class, 'rs-btn') and contains(@class, 'rs-btn-primary')]"));
-        searchButton.click();
-        Thread.sleep(2000);
+            String jsonInputString = "{}";
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
 
-        // Check the checkbox
-        WebElement checkBox = driver.findElement(By.xpath("//input[@type='checkbox']"));
-        checkBox.click();
-        Thread.sleep(1000);
+            int responseCode = conn.getResponseCode();
+            System.out.println("API Response Code: " + responseCode);
 
-        // Click the second action button (usually for download/send action)
-        WebElement secondActionButton = driver.findElement(By.xpath("(//button[contains(@class, 'action-button')])[last()]"));
-        secondActionButton.click();
-        Thread.sleep(2000);
+            conn.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (driver != null) {
+//                driver.quit(); // Close browser
+            }
+        }
     }
 }

@@ -39,7 +39,7 @@ public class AutoDownlaod_withtracking_Express_notice {
     @Test
     public void loginPage() throws InterruptedException {
         Login_functionality_admin test = new Login_functionality_admin();
-        test.Login(driver);
+        test.loginTest(driver);
 
         Thread.sleep(4000);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[13]/a/span"))).click();
@@ -58,7 +58,8 @@ public class AutoDownlaod_withtracking_Express_notice {
         for (String batchName : batchNames) {
             // Select User
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath(
-                    "/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[1]/div/div"))).click();
+                    "/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[12]/a/span[2]"))).click();
+
             WebElement userSearch = wait.until(ExpectedConditions.visibilityOfElementLocated(
                     By.cssSelector("input[placeholder='Search']")));
             userSearch.clear();

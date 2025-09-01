@@ -34,7 +34,7 @@ public class BulkSend_for_standard_notice {
     @Test
     public void loginPage() throws InterruptedException {
         Login_functionality_admin test = new Login_functionality_admin();
-        test.Login(driver);
+        test.loginTest(driver);
         Thread.sleep(5000);
         driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/a")).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

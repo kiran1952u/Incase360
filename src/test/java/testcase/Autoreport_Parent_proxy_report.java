@@ -36,7 +36,7 @@ public class Autoreport_Parent_proxy_report {
     public void main() throws InterruptedException {
 
         Login_functionality_admin test = new Login_functionality_admin();
-        test.Login(driver);
+        test.loginTest(driver);
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[11]/a")).click();
         Thread.sleep(4000);

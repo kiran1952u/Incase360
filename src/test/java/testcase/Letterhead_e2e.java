@@ -6,10 +6,14 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import utilities.Login_functionality_admin;
 import utilities.Login_functionality_user;
 
+import java.time.Duration;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Letterhead_e2e {
@@ -25,40 +29,35 @@ public class Letterhead_e2e {
             Login_functionality_user test = new Login_functionality_user();
             test.Login1(driver);
             Thread.sleep(2000);
-            driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[7]/a")).click();
+            driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[6]/a/span[2]")).click();
 
             Thread.sleep(2000);
-            driver.findElement(By.cssSelector("#layout-wrapper > div.main-content > div > div > div.table-responsive > div.rs-table.rs-table-hover.rs-table-word-wrap > div.rs-table-body-row-wrapper > div.rs-table-body-wheel-area > div:nth-child(5) > div > div.rs-table-cell.rs-table-cell-last > div > div > button.rs-btn-icon.rs-btn-icon-placement-left.rs-btn.rs-btn-primary.rs-btn-blue.rs-btn-xs > svg")).click();
-            Thread.sleep(3000);
-            WebElement inputField = driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[2]/form/div/div/div[2]/div/div/input"));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement button = wait.until(ExpectedConditions.presenceOfElementLocated(
+                    By.xpath("//button[contains(text(), 'Add New')]")
+            ));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", button);
+            Thread.sleep(500);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", button);
 
-            // Clear the existing value and enter a new value
-            inputField.clear();
-            inputField.sendKeys("70");
+            driver.findElement(By.id("head_name")).sendKeys("vipul_letterhead");
+            driver.findElement(By.id("headerMargin")).sendKeys("60");
 
-//            WebElement fileInput = driver.findElement(By.cssSelector("body > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) > label:nth-child(2) > div:nth-child(3) > span:nth-child(2)"));
-//
-//            // Provide the absolute path of the CSV file
-//            String filePath = "C:\\Letterhead  photo\\pdf_generation_test.jpeg";
-//            fileInput.sendKeys(filePath);
+            driver.findElement(By.id("footerMargin")).sendKeys("20");
+            // Locate all <input type="file"> on the page
+            List<WebElement> fileInputs = driver.findElements(By.cssSelector("input[type='file']"));
 
-            WebElement fileInput = driver.findElement(By.xpath("//input[@type='file']"));
+// Upload the Letterhead image to the first input
+            fileInputs.get(0).sendKeys("D:\\Arbitration process KT\\OneDrive\\Pictures\\Letterhead signature\\Adv_Letterhead_format-4.png");
 
-            // Set the absolute image file path
-            fileInput.sendKeys("C:\\Letterhead_photo\\Adv_Letterhead_format-4.png");
-            Thread.sleep(4000);
+// Upload the Signature image to the second input
+            fileInputs.get(1).sendKeys("D:\\Arbitration process KT\\OneDrive\\Pictures\\Letterhead signature\\pdf_generation_test.jpeg");
 
-            // Find the actual file input element inside the wrapper (file input is usually hidden)
-            WebElement fileInput2 = driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[2]/form/div/div/div[5]/div/label[2]/input"));
-
-            // Provide the absolute path of the image you want to upload
-            String filePath = "C:\\Letterhead_photo\\Adv_Letterhead_format-5.png"; // Replace with actual file path
-
-            // Send the file path to the file input
-            fileInput2.sendKeys(filePath);
+            driver.findElement(By.name("signatureWidth")).sendKeys("100");
+            driver.findElement(By.id("signatureHeight")).sendKeys("50");
             Thread.sleep(2000);
-            driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[3]/button[2]")).click();
-
+            WebElement submitButton = driver.findElement(By.xpath("//button[text()='Submit']"));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", submitButton);
 
 
 

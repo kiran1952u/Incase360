@@ -21,9 +21,11 @@ public class Bulk_upload_for_parent_notice_Express_type {
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver(options);
         driver.get("https://test.incase360.com/login");
+
         Login_functionality_admin test = new Login_functionality_admin();
-        test.Login(driver);
+        test.loginTest(driver);
         Thread.sleep(3000);
+
         driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/a")).click();
         Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[6]/ul/li[1]/a")).click();
@@ -36,26 +38,18 @@ public class Bulk_upload_for_parent_notice_Express_type {
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[2]/select")).click();
         WebElement dropdownElement = driver.findElement(By.className("form-control"));
-
-        // Initialize the Select class with the dropdown WebElement
         Select dropdown = new Select(dropdownElement);
-
-        // Select an option by visible text
         dropdown.selectByVisibleText("Tamil_kannnada_parent_2");
         Thread.sleep(3000);
+
         WebElement dropdownElement1 = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[2]/div[3]/select"));
-
-        // Initialize the Select class with the dropdown WebElement
         Select dropdown1 = new Select(dropdownElement1);
-
-        // Select an option by visible text
         dropdown1.selectByVisibleText("kiran_letterhead3");
-            WebElement fileInput = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[1]/label[2]/input"));
-            // Provide the file path of the CSV file to be uploaded
-            String csvFilePath = "D:\\UploadDATA\\Tamil kannda paernt 2 notice DATA\\Combine_tamil_kannada_csv_Data_proxy.csv";
 
-            // Use sendKeys() method to upload the CSV file
-            fileInput.sendKeys(csvFilePath);
+        WebElement fileInput = driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[1]/label[2]/input"));
+        String csvFilePath = "D:\\UploadDATA\\Tamil kannda paernt 2 notice DATA\\Combine_tamil_kannada_csv_Data_proxy.csv";
+        fileInput.sendKeys(csvFilePath);
+
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys("Tamil_kannda_auto_report_01");
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
@@ -68,15 +62,11 @@ public class Bulk_upload_for_parent_notice_Express_type {
         for (int i = 0; i < 5; i++) {
             apiTest.testCreateNotice();
         }
-//        apiTest.testCreatePDFexpress();
         apiTest.testCreatePDF1();
 
-        refreshPage(driver);
-
-    }
-
-    @Test
-    public void refreshPage(ChromeDriver driver) {
         driver.navigate().refresh();
+
+        // Optionally, close the driver at the end
+        driver.quit();
     }
 }

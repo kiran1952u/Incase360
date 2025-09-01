@@ -37,13 +37,13 @@ public class AutodownloadWithoutTracking {
     @Test
     public void loginPage() throws InterruptedException {
         Login_functionality_admin test = new Login_functionality_admin();
-        test.Login(driver);
+        test.loginTest(driver);
 
 //        // Use explicit waits instead of Thread.sleep()
 //        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[12]/a")));
 //        element.click();
         Thread.sleep(4000);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[13]/a/span"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[12]/a/span[2]"))).click();
         Thread.sleep(2000);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[1]/div/div"))).click();
         driver.findElement(By.cssSelector("input[placeholder='Search']")).sendKeys("vipul");

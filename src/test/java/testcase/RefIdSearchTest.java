@@ -30,7 +30,7 @@ public class RefIdSearchTest {
     public void performRefIdSearch() throws InterruptedException {
         // Step 0: Perform Login
         Login_functionality_admin login = new Login_functionality_admin();
-        login.Login(driver);
+        login.loginTest(driver);
         Thread.sleep(5000);
         // Step 1: Open Ref ID Search page
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[12]/a")).click();

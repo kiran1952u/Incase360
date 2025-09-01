@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 @Test
-public class parent_notice_apis {
+public class Proxy_pdf_generation {
 
 
     public void parentApiEntry() {

@@ -34,7 +34,7 @@ public class Letterhead_approved {
 
     public void loginPage() throws InterruptedException {
         Login_functionality_admin test = new Login_functionality_admin();
-        test.Login(driver);
+        test.loginTest(driver);
         Thread.sleep(2000);
         WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[9]/a/span"));
 
