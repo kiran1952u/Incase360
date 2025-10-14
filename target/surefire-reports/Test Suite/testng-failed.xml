@@ -3,24 +3,13 @@
 <suite name="Failed suite [Test Suite]" guice-stage="DEVELOPMENT" verbose="0">
   <test thread-count="5" name="TestScriptsExecution(failed)" verbose="0">
     <classes>
-      <class name="testcase.Bulk_upload_for_parent_notice_standard_type">
+      <class name="runners.TestRunner">
         <methods>
-          <include name="setUp"/>
-          <include name="loginPage"/>
+          <include name="setUpClass"/>
+          <include name="tearDownClass"/>
+          <include name="runScenario" invocation-numbers="0 1 2"/>
         </methods>
-      </class> <!-- testcase.Bulk_upload_for_parent_notice_standard_type -->
-      <class name="testcase.BulkSend_for_standard_notice">
-        <methods>
-          <include name="loginPage"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- testcase.BulkSend_for_standard_notice -->
-      <class name="testcase.Bulk_upload_for_parent_notice_Express_type">
-        <methods>
-          <include name="refreshPage"/>
-          <include name="UserAction"/>
-        </methods>
-      </class> <!-- testcase.Bulk_upload_for_parent_notice_Express_type -->
+      </class> <!-- runners.TestRunner -->
     </classes>
   </test> <!-- TestScriptsExecution(failed) -->
 </suite> <!-- Failed suite [Test Suite] -->

@@ -31,6 +31,9 @@ public class AutoDownloadAPI {
             }
         }
     }
+
+    public void callAutoDownloadAPI(String yourEndpointUrl) {
+    }
 }
 
 

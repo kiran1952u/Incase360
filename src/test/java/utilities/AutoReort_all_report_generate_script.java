@@ -2,11 +2,11 @@ package utilities;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.testng.Assert.assertEquals;
 
 public class AutoReort_all_report_generate_script {
 
@@ -22,7 +22,6 @@ public class AutoReort_all_report_generate_script {
                 "/autoPreliminaryReport",
                 "/autoInterimReport",
                 "/autoFinalReport",
-
         };
 
         for (String endpoint : urls) {
@@ -37,10 +36,14 @@ public class AutoReort_all_report_generate_script {
                 System.out.println("Response from " + endpoint + ":");
                 response.prettyPrint();
 
+                // Capture response time
+                long responseTime = response.time(); // in milliseconds
+                System.out.println("Response time for " + endpoint + ": " + responseTime + " ms");
+
                 // Validate the status code
                 int statusCode = response.getStatusCode();
                 System.out.println("Status Code: " + statusCode);
-                assertEquals(statusCode, 200, "Expected status code 200 but got " + statusCode);
+                Assert.assertEquals(statusCode, 200, "Expected status code 200 but got " + statusCode);
             }
         }
     }
