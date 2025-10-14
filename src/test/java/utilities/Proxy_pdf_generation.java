@@ -5,55 +5,69 @@ import org.testng.annotations.Test;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-@Test
+
 public class Proxy_pdf_generation {
 
-
+    @Test
     public void parentApiEntry() {
         try {
-
+            // Define API endpoints
             String createNoticeUrl = "https://testapi.incase360.com/createNotice";
-            // URL for the second API
             String createPdfUrl = "https://tools.incase360.com/notice-management-dev/create-pdf";
+            String sendScheduledNoticeUrl = "https://testapi.incase360.com/sendScheduledNotice";
 
-
+            // 1️⃣ Step 1: Hit Create Notice API 4 times
+            System.out.println("===== Step 1: Hitting Create Notice API 4 times =====");
             for (int i = 0; i < 4; i++) {
                 sendPostRequest(createNoticeUrl);
-                System.out.println("create notice hits four times");
+                System.out.println("createNotice API hit #" + (i + 1));
+                Thread.sleep(1000); // optional delay
             }
 
+            // 2️⃣ Step 2: Hit Create PDF API 1 time
+            System.out.println("===== Step 2: Hitting Create PDF API =====");
+            for (int i = 0; i < 4; i++) {
                 sendPostRequest(createPdfUrl);
-            System.out.println("create pdf hites only once");
+//                System.out.println("createNotice API hit #" + (i + 1));
+//                Thread.sleep(1000); // optional delay
+                System.out.println("createPdf API hit once ✅" + (i + 1));
+                Thread.sleep(1000);
+            }
+
+            // 3️⃣ Step 3: Hit Send Scheduled Notice API 3 times
+            System.out.println("===== Step 3: Hitting Send Scheduled Notice API 3 times =====");
+            for (int j = 0; j < 4; j++) {
+                sendPostRequest(sendScheduledNoticeUrl);
+                System.out.println("sendScheduledNotice API hit #" + (j + 1));
+                Thread.sleep(1000);
+            }
+
+            System.out.println("\n🎯 All API calls completed successfully in sequence!");
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("❌ Error while calling APIs: ", e);
         }
     }
 
+    // Helper method for sending POST requests
     private void sendPostRequest(String targetUrl) throws Exception {
-        // Create a URL object with the target URL
         URL url = new URL(targetUrl);
-        // Open a connection to the URL
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-        // Set up the request method and headers
         connection.setRequestMethod("POST");
-        connection.setRequestProperty("Content-Type", "application/json"); // or any other content type
+        connection.setRequestProperty("Content-Type", "application/json");
         connection.setDoOutput(true);
 
-        // Write the request body if needed (for POST requests)
-        String jsonInputString = "{}"; // Replace with actual JSON if required
+        // Example JSON request body
+        String jsonInputString = "{}";
         try (OutputStream os = connection.getOutputStream()) {
             byte[] input = jsonInputString.getBytes("utf-8");
             os.write(input, 0, input.length);
         }
 
-        // Check the response code
         int responseCode = connection.getResponseCode();
-        System.out.println("Response Code: " + responseCode);
+        System.out.println("Response from " + targetUrl + ": " + responseCode);
 
-        // Close the connection
         connection.disconnect();
     }
-
 }

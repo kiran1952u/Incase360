@@ -10,14 +10,21 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.4.0</version>
+            <version>4.35.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-devtools-v139</artifactId>
+            <version>4.35.0</version>
+        </dependency>
+
 
         <!-- WebDriverManager Dependency -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.5.3</version>
+            <version>5.7.0</version>
         </dependency>
 
         <!-- TestNG Dependency -->
@@ -93,12 +100,12 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>7.23.0</version>
+            <version>7.14.0</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
-            <version>7.23.0</version>
+            <version>7.14.0</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
@@ -116,6 +123,7 @@
             <artifactId>opencsv</artifactId>
             <version>5.7.1</version>
         </dependency>
+        
 
     </dependencies>
     <build>
@@ -135,6 +143,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0</version>
                 <configuration>
+                    <providers>
+                        <provider>testng</provider>
+                    </providers>
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>

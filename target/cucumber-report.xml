@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="359.979" tests="6" skipped="0" failures="5" errors="0" timestamp="2025-10-10T07:40:24.306322900Z">
+<testcase classname="Auto Download With Tracking (Express Version)" name="Verify that admin can create an auto download successfully" time="177.58">
+<system-out><![CDATA[
+Given the admin is logged into the system...................................passed
+When the admin navigates to the autodownload page...........................passed
+And selects user "vipul"....................................................passed
+And selects template "multiple_coborrower_standard".........................passed
+And selects batch "large_batch".............................................passed
+And sets the current date and time for scheduling...........................passed
+And submits the autodownload form...........................................passed
+Then the autodownload API should be triggered successfully..................passed
+]]></system-out>
+</testcase>
+<testcase classname="Auto Download Without Tracking" name="Schedule and trigger an autodownload without tracking" time="150.218">
+<failure type="org.openqa.selenium.NoSuchSessionException" message="invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=141.0.7390.66)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f7ea91a9834cfcafdd2365577c7d1676, refresh {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.66, chrome: {chromedriverVersion: 141.0.7390.76 (d6fcfbb51aac..., userDataDir: C:\Users\KIRAN_~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50317}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50317/devtoo..., se:cdpVersion: 141.0.7390.66, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f7ea91a9834cfcafdd2365577c7d1676">
+<![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=141.0.7390.66)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f7ea91a9834cfcafdd2365577c7d1676, refresh {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.66, chrome: {chromedriverVersion: 141.0.7390.76 (d6fcfbb51aac..., userDataDir: C:\Users\KIRAN_~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50317}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50317/devtoo..., se:cdpVersion: 141.0.7390.66, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f7ea91a9834cfcafdd2365577c7d1676
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:630)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:634)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:1099)
+	at stepdefinitions.Autodownload_with_tracking_express.autodownload_api_triggered(Autodownload_with_tracking_express.java:97)
+	at ✽.the autodownload API should be triggered successfully(file:///C:/Presolv_Project/NewIncase360updated/Incase360/src/test/resources/features/Autodownload_with_tracking_express.feature:15)
+]]>
+</failure>
+<system-out><![CDATA[
+Given the admin is logged into the system...................................passed
+When the admin navigates to the autodownload page...........................passed
+And selects user "vipul"....................................................passed
+And selects template "multiple_coborrower_standard".........................passed
+And selects batch "large_batch".............................................passed
+And sets the current date and time for scheduling...........................passed
+And submits the autodownload form...........................................passed
+Then the autodownload API should be triggered successfully..................failed
+]]></system-out>
+</testcase>
+<testcase classname="AutoReport for Standard Notice" name="Schedule standard auto report successfully" time="31.68">
+<failure type="org.openqa.selenium.TimeoutException" message="Expected condition failed: waiting for element to be clickable: By.xpath: /html/body/div[3]/div[2]/div[1]/span (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.66, chrome: {chromedriverVersion: 141.0.7390.65 (b2ec783d2b51..., userDataDir: C:\Users\KIRAN_~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55480}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55480/devtoo..., se:cdpVersion: 141.0.7390.66, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4bf970fcd0586c745947fd403b441ca1">
+<![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: /html/body/div[3]/div[2]/div[1]/span (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.35.0', revision: '1c58e5028b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.66, chrome: {chromedriverVersion: 141.0.7390.65 (b2ec783d2b51..., userDataDir: C:\Users\KIRAN_~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55480}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55480/devtoo..., se:cdpVersion: 141.0.7390.66, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4bf970fcd0586c745947fd403b441ca1
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at stepdefinitions.Autoreport_for_standard_notice_steps.the_admin_schedules_a_standard_auto_report(Autoreport_for_standard_notice_steps.java:61)
+	at ✽.the admin schedules a standard auto report for user "vipul" with notice "Mu" and batch "standard_batch_MSI_01"(file:///C:/Presolv_Project/NewIncase360updated/Incase360/src/test/resources/features/Autoreport_for_standard_notice.feature:6)
+]]>
+</failure>
+<system-out><![CDATA[
+Given Given the admin logs into the Incase360 application for STANDARD auto report.passed
+When the admin schedules a standard auto report for user "vipul" with notice "Mu" and batch "standard_batch_MSI_01".failed
+And the admin sets the standard auto report schedule time to "2024-09-23T13:45".skipped
+And the admin submits the standard auto report..............................skipped
+Then the standard AutoReport API should be triggered successfully...........skipped
+]]></system-out>
+</testcase>
+<testcase classname="Auto Report for Multiple Batches Express" name="Generate autoreport for multiple batches - #1.1" time="0.004">
+<failure type="java.lang.NullPointerException" message="Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;driver&quot; is null">
+<![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "driver" is null
+	at utilities.Login_functionality_admin.loginTest(Login_functionality_admin.java:25)
+	at stepdefinitions.Autoreport_test_with_multiple_batches_express.i_am_logged_in_as_an_admin(Autoreport_test_with_multiple_batches_express.java:29)
+	at ✽.I am logged in as an admin(file:///C:/Presolv_Project/NewIncase360updated/Incase360/src/test/resources/features/Autoreport_test_with_multiple_batches_express.feature:4)
+]]>
+</failure>
+<system-out><![CDATA[
+Given I am logged in as an admin............................................failed
+And I navigate to the autoreport page.......................................skipped
+When I fill student as "vipul"..............................................skipped
+And I select teacher as "Com"...............................................skipped
+And I select batch "Test_que_table_entry_01"................................skipped
+And I set datetime as "2024-09-23T13:45"....................................skipped
+And I pick a random class...................................................skipped
+And I submit the autoreport.................................................skipped
+Then The parent notice API should be triggered..............................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Auto Report for Multiple Batches Express" name="Generate autoreport for multiple batches - #1.2" time="0.004">
+<failure type="java.lang.NullPointerException" message="Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;driver&quot; is null">
+<![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "driver" is null
+	at utilities.Login_functionality_admin.loginTest(Login_functionality_admin.java:25)
+	at stepdefinitions.Autoreport_test_with_multiple_batches_express.i_am_logged_in_as_an_admin(Autoreport_test_with_multiple_batches_express.java:29)
+	at ✽.I am logged in as an admin(file:///C:/Presolv_Project/NewIncase360updated/Incase360/src/test/resources/features/Autoreport_test_with_multiple_batches_express.feature:4)
+]]>
+</failure>
+<system-out><![CDATA[
+Given I am logged in as an admin............................................failed
+And I navigate to the autoreport page.......................................skipped
+When I fill student as "vipul"..............................................skipped
+And I select teacher as "Com"...............................................skipped
+And I select batch "without_com_express_01".................................skipped
+And I set datetime as "2024-09-23T13:45"....................................skipped
+And I pick a random class...................................................skipped
+And I submit the autoreport.................................................skipped
+Then The parent notice API should be triggered..............................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Auto Report for Multiple Batches Express" name="Generate autoreport for multiple batches - #1.3" time="0.007">
+<failure type="java.lang.NullPointerException" message="Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;driver&quot; is null">
+<![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "driver" is null
+	at utilities.Login_functionality_admin.loginTest(Login_functionality_admin.java:25)
+	at stepdefinitions.Autoreport_test_with_multiple_batches_express.i_am_logged_in_as_an_admin(Autoreport_test_with_multiple_batches_express.java:29)
+	at ✽.I am logged in as an admin(file:///C:/Presolv_Project/NewIncase360updated/Incase360/src/test/resources/features/Autoreport_test_with_multiple_batches_express.feature:4)
+]]>
+</failure>
+<system-out><![CDATA[
+Given I am logged in as an admin............................................failed
+And I navigate to the autoreport page.......................................skipped
+When I fill student as "vipul"..............................................skipped
+And I select teacher as "Com"...............................................skipped
+And I select batch "without_com_express_02".................................skipped
+And I set datetime as "2024-09-23T13:45"....................................skipped
+And I pick a random class...................................................skipped
+And I submit the autoreport.................................................skipped
+Then The parent notice API should be triggered..............................skipped
+]]></system-out>
+</testcase>
+</testsuite>

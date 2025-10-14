@@ -3,17 +3,11 @@
 <suite name="Failed suite [Test Suite]" guice-stage="DEVELOPMENT" verbose="0">
   <test thread-count="5" name="TestScriptsExecution(failed)" verbose="0">
     <classes>
-      <class name="testcase.UserRefIdSearch">
-        <methods>
-          <include name="callAutoDownloadNoticeAPI"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- testcase.UserRefIdSearch -->
       <class name="runners.TestRunner">
         <methods>
           <include name="setUpClass"/>
           <include name="tearDownClass"/>
-          <include name="runScenario" invocation-numbers="0"/>
+          <include name="runScenario" invocation-numbers="0 1 2"/>
         </methods>
       </class> <!-- runners.TestRunner -->
     </classes>

@@ -2,6 +2,7 @@ package utilities;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -16,7 +17,7 @@ public class AutoreportAPI_for_parent_notice {
     }
 
     @Test
-    public void testGetRequests() {
+    public boolean testGetRequests() {
         // Array of endpoints to test
         String[] urls = {
                 "/autoReport",
@@ -45,8 +46,9 @@ public class AutoreportAPI_for_parent_notice {
                 // Validate the status code
                 int statusCode = response.getStatusCode();
                 System.out.println("Status Code: " + statusCode);
-                assertEquals(statusCode, 200, "Expected status code 200 but got " + statusCode);
+                Assert.assertEquals(statusCode, 200, "Expected status code 200 but got " + statusCode);
             }
         }
+        return false;
     }
 }

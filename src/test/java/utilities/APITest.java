@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 public class APITest {
 
     @BeforeClass
-    public void setup() {
+    public static void setup() {
         RestAssured.baseURI = "https://testapi.incase360.com";
     }
 

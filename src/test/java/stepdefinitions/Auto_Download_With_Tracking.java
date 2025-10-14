@@ -1,50 +1,30 @@
 package stepdefinitions;
 
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import hooks.Hooks;
+import io.cucumber.java.en.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.*;
 import utilities.AutoDownloadAPI;
 import utilities.Login_functionality_admin;
 
-import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Auto_Download_With_Tracking {
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private WebDriver driver = Hooks.driver;
+    private WebDriverWait wait = Hooks.wait;
 
-    @Given("I login as admin")
-    public void i_login_as_admin() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-gpu");
-
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-
+    @Given("I login as admin_to_check_with_tracking")
+    public void  I_login_as_admin_to_check_with_tracking () throws InterruptedException {
         new Login_functionality_admin().loginTest(driver);
     }
 
     @When("I navigate to Auto Download Without Tracking module")
     public void i_navigate_to_auto_download_without_tracking_module() throws InterruptedException {
-        Thread.sleep(4000);
         wait.until(ExpectedConditions.elementToBeClickable(
                         By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[12]/a/span[2]")))
                 .click();
+        Thread.sleep(2000);
     }
 
     @When("I fill in the Auto Download form")
@@ -70,7 +50,7 @@ public class Auto_Download_With_Tracking {
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("/html/body/div[3]/div[2]/div[1]/span"))).click();
 
-        // ✅ Current Date/Time
+        // Current Date/Time
         WebElement dateTimeInput = wait.until(ExpectedConditions.elementToBeClickable(By.id("scheduled_on")));
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
@@ -85,7 +65,6 @@ public class Auto_Download_With_Tracking {
                 By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div/div[12]/button")));
         submitBtn.click();
 
-
         Thread.sleep(4000);
         AutoDownloadAPI api = new AutoDownloadAPI();
         api.setup();
@@ -93,7 +72,5 @@ public class Auto_Download_With_Tracking {
 
         driver.navigate().refresh();
         Thread.sleep(5000);
-        driver.quit();
     }
 }
-
