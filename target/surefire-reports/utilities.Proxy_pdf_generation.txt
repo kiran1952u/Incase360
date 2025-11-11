@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: utilities.Proxy_pdf_generation
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.984 s - in utilities.Proxy_pdf_generation
