@@ -36,9 +36,9 @@ public class Bulk_upload_for_parent_notice_standard_type {
         test.loginTest(driver);
 
         Thread.sleep(5000);
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[6]/a")).click();
+        driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[5]/a")).click();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[6]/ul/li[1]/a")).click();
+        driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[5]/ul/li[1]/a")).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div/div")).click();
         Thread.sleep(2000);
@@ -55,7 +55,7 @@ public class Bulk_upload_for_parent_notice_standard_type {
         option1.click();
         Thread.sleep(2000);
 
-        String filePath = "D:\\coborrower data with format\\MIS test DATA\\Batch_03.csv";
+        String filePath = "D:\\coborrower data with format\\MIS test DATA\\Batch_04.csv";
         WebElement fileInput = driver.findElement(By.xpath("//input[@type='file']"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", fileInput);
         fileInput.sendKeys(filePath);

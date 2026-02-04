@@ -65,7 +65,7 @@ public class Bulk_upload_for_parent_notice_Express_type {
         for (int i = 0; i < 5; i++) {
             apiTest.testCreateNotice();
         }
-        apiTest.testCreatePDF1();
+        // apiTest.testCreatePDF1();  // Commented out - method removed from APITest
 
         driver.navigate().refresh();
 

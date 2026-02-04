@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.DriverFactory;
+import utilities.ScenarioContext;
 
 import java.time.Duration;
 
@@ -18,10 +19,15 @@ public class Hooks {
     @Before
     public void setUp() {
         driver = DriverFactory.getDriver();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @After
     public void tearDown() {
+        // Clear ScenarioContext data after each scenario
+        ScenarioContext.clearContext();
+
+        // Quit the browser
         DriverFactory.quitDriver();
     }
 }

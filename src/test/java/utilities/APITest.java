@@ -51,23 +51,5 @@ public class APITest {
 
         response.prettyPrint();
     }
-    @Test
-    public void testCreatePDF1() {
 
-        String requestBody = "{ \"title\": \"Test PDF\", \"content\": \"This is the content of the test PDF\" }";
-
-
-        Response response = given()
-                .body(requestBody)
-                .header("Content-Type", "application/json")
-                .when()
-                .post("https://testapi.incase360.com/createPdf");
-
-
-        response.then()
-                .statusCode(200);
-
-
-        response.prettyPrint();
-    }
 }

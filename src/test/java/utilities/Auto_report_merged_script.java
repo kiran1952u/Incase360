@@ -38,7 +38,7 @@ public class Auto_report_merged_script {
             System.out.println("Status Code: " + statusCode);
 
 
-            Assert.assertEquals(String.valueOf(statusCode / 100), 2, "Expected 2xx status code but got " + statusCode);
+            Assert.assertEquals(statusCode / 100, 2, "Expected 2xx status code but got " + statusCode);
         }
             try {
                 Thread.sleep(1000); // Sleep for 1 second between requests

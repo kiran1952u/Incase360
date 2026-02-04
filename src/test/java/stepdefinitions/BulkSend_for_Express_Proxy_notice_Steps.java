@@ -1,10 +1,12 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utilities.DriverFactory;
+import utilities.SendScheduledNoticeAPI;
 
 /**
  * BulkSend_for_Express_Proxy_notice_Steps - Contains UNIQUE step definitions specific to Express Proxy Notice
@@ -38,6 +40,23 @@ public class BulkSend_for_Express_Proxy_notice_Steps {
         WebElement element1 = driver.findElement(By.xpath("/html/body/div[2]/div/div[9]/span"));
         element1.click();
         System.out.println("Date selected from date picker (express proxy)");
+    }
+
+    @Then("the sendScheduledNotice API should be triggered")
+    public void the_send_scheduled_notice_api_should_be_triggered() throws InterruptedException {
+        System.out.println("========================================");
+        System.out.println("⏱️ Waiting 5 seconds before triggering API...");
+        System.out.println("========================================");
+        Thread.sleep(5000); // Wait for backend to process
+
+        // Trigger the API
+        SendScheduledNoticeAPI api = new SendScheduledNoticeAPI();
+        api.setup();
+        api.sendScheduledNoticeAPI();
+
+        System.out.println("========================================");
+        System.out.println("✅ sendScheduledNotice API call completed!");
+        System.out.println("========================================");
     }
 
     // ==================================================================================

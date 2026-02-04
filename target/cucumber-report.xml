@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="27.988" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-02-03T11:11:15.629888Z">
+<testcase classname="Letterhead Creation" name="Successfully create a new letterhead with images and formatting" time="27.695">
+<system-out><![CDATA[
+Given the admin is logged into the application for letterhead creation......passed
+When the admin navigates to the letterhead management section for creation..passed
+And the admin clicks the Add New button for letterhead creation.............passed
+And the admin enters a unique letterhead name for creation..................passed
+And the admin enters header margin as "50" for letterhead...................passed
+And the admin enters footer margin as "40" for letterhead...................passed
+And the admin uploads the letterhead image file for creation................passed
+And the admin uploads the signature image file for creation.................passed
+And the admin enters signature width as "150" for letterhead................passed
+And the admin enters signature height as "50" for letterhead................passed
+And the admin clicks the Submit button for new letterhead creation..........passed
+Then the new letterhead should be created successfully......................passed
+]]></system-out>
+</testcase>
+</testsuite>

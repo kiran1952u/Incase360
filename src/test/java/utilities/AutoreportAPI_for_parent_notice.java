@@ -17,7 +17,7 @@ public class AutoreportAPI_for_parent_notice {
     }
 
     @Test
-    public boolean testGetRequests() {
+    public void testGetRequests() {
         // Array of endpoints to test
         String[] urls = {
                 "/autoReport",
@@ -30,7 +30,7 @@ public class AutoreportAPI_for_parent_notice {
         for (String endpoint : urls) {
             System.out.println("\n=== Testing endpoint: " + endpoint + " ===");
 
-            // Hit each endpoint exactly two times
+            // Hit each endpoint exactly three times
             for (int attempt = 1; attempt <= 3; attempt++) {
                 System.out.println("\nHitting endpoint: " + endpoint + " - Attempt " + attempt);
 
@@ -49,6 +49,5 @@ public class AutoreportAPI_for_parent_notice {
                 Assert.assertEquals(statusCode, 200, "Expected status code 200 but got " + statusCode);
             }
         }
-        return false;
     }
 }
