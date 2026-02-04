@@ -200,7 +200,7 @@ public class Bulk_upload_for_parent_notice_Express_type_Steps {
     public void pdf_creation_api_should_be_triggered() throws InterruptedException {
         APITest apiTest = new APITest();
         apiTest.setup();
-        apiTest.testCreatePDF1();
+        apiTest.testCreatePDFexpress();
     }
 
     /**

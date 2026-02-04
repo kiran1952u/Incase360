@@ -23,7 +23,7 @@ public class Login_functionality_user {
         usernameField.sendKeys("vipul@presolv360.com");
 
         WebElement passwordField = driver.findElement(By.name("userPassword"));
-        passwordField.sendKeys("Kiran@123");
+        passwordField.sendKeys("Bot@123");
         Thread.sleep(3000);
 
 //        WebElement captchaElement = driver.findElement(By.id("captchaanswer"));

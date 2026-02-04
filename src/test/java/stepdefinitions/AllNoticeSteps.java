@@ -20,15 +20,10 @@ public class AllNoticeSteps {
     private WebDriver driver = Hooks.driver;
 
     /**
-     * STEP 1: Login as admin user
+     * STEP 1: Login as admin user - MOVED TO CommonSteps.java
      * Feature: Given I am logged in as admin user
+     * This step is now shared across all features in CommonSteps.java
      */
-    @Given("I am logged in as admin user")
-    public void i_am_logged_in_as_admin_user() throws InterruptedException {
-        Login_functionality_admin login = new Login_functionality_admin();
-        login.loginTest(driver);
-        Thread.sleep(5000);
-    }
 
     /**
      * STEP 2: Navigate to All Notices menu

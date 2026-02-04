@@ -1,38 +1,23 @@
 package stepdefinitions;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import utilities.Login_functionality_admin;
 import utilities.Proxy_pdf_generation;
+import utilities.ScenarioContext;
+import hooks.Hooks;
 
 import java.util.UUID;
 
 public class Bulk_upload_for_parent_notice_standard_type_Steps {
-    private WebDriver driver;
+    private WebDriver driver = Hooks.driver;
     private String batchName;
-
-    @Before
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-gpu");
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-    }
 
     @Given("Admin logs into the application")
     public void adminLogsIntoTheApplication() throws InterruptedException {
@@ -43,9 +28,9 @@ public class Bulk_upload_for_parent_notice_standard_type_Steps {
 
     @When("Admin navigates to bulk upload section")
     public void adminNavigatesToBulkUploadSection() throws InterruptedException {
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[6]/a")).click();
+        driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[5]/a")).click();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[6]/ul/li[1]/a")).click();
+        driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[5]/ul/li[1]/a")).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div/div")).click();
         Thread.sleep(2000);
@@ -86,7 +71,14 @@ public class Bulk_upload_for_parent_notice_standard_type_Steps {
 
     @And("Admin enters batch name with prefix {string}")
     public void adminEntersBatchNameWithPrefix(String prefix) {
+        // Generate unique batch name with random UUID
         batchName = prefix + UUID.randomUUID().toString().substring(0, 8);
+
+        // IMPORTANT: Store batch name in ScenarioContext so other steps can access it
+        ScenarioContext.setContext("BATCH_NAME", batchName);
+        System.out.println("✅ Batch created: " + batchName);
+
+        // Enter batch name in the UI
         driver.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div[3]/div[2]/input")).sendKeys(batchName);
     }
 
@@ -109,15 +101,14 @@ public class Bulk_upload_for_parent_notice_standard_type_Steps {
     }
 
     @Then("Page should be refreshed successfully")
-    public void pageShouldBeRefreshedSuccessfully() {
+    public void pageShouldBeRefreshedSuccessfully() throws InterruptedException {
         driver.navigate().refresh();
         System.out.println("Page refreshed");
-    }
 
-    @After
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        // CRITICAL: Wait for backend to process the batch before navigating to bulk send
+        System.out.println("========================================");
+        System.out.println("⏱️ Waiting 10 seconds for batch to be processed by backend...");
+        System.out.println("========================================");
+        Thread.sleep(10000);  // Wait 10 seconds for batch to be available in bulk send dropdown
     }
 }

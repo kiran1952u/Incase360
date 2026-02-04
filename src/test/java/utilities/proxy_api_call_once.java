@@ -16,15 +16,23 @@ public class proxy_api_call_once {
             String createNoticeUrl = "https://testapi.incase360.com/createNotice";
             String createPdfUrl = "https://tools.incase360.com/notice-management-dev/create-pdf";
 
-            // 1️⃣ Step 1: Hit Create Notice API once
-            System.out.println("===== Step 1: Hitting Create Notice API once =====");
+            // 1️⃣ Step 1: Hit Create Notice API twice
+            System.out.println("===== Step 1: Hitting Create Notice API (1st time) =====");
             sendPostRequest(createNoticeUrl);
-            System.out.println("✅ createNotice API hit successfully");
+            System.out.println("✅ createNotice API hit successfully (1st time)");
 
-            // 2️⃣ Step 2: Hit Create PDF API once
-            System.out.println("===== Step 2: Hitting Create PDF API once =====");
+            System.out.println("\n===== Step 2: Hitting Create Notice API (2nd time) =====");
+            sendPostRequest(createNoticeUrl);
+            System.out.println("✅ createNotice API hit successfully (2nd time)");
+
+            // 2️⃣ Step 3: Hit Create PDF API twice
+            System.out.println("\n===== Step 3: Hitting Create PDF API (1st time) =====");
             sendPostRequest(createPdfUrl);
-            System.out.println("✅ createPdf API hit successfully");
+            System.out.println("✅ createPdf API hit successfully (1st time)");
+
+            System.out.println("\n===== Step 4: Hitting Create PDF API (2nd time) =====");
+            sendPostRequest(createPdfUrl);
+            System.out.println("✅ createPdf API hit successfully (2nd time)");
 
             System.out.println("\n🎯 All required API calls completed successfully!");
 

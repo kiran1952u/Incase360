@@ -7,9 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.Login_functionality_admin;
+
+import java.time.Duration;
 
 @Test
 public class Letterhead_approved {
@@ -33,34 +36,14 @@ public class Letterhead_approved {
         Login_functionality_admin test = new Login_functionality_admin();
         test.loginTest(driver);
         Thread.sleep(2000);
-        WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[9]/a/span"));
 
-        element.click();
-//
-        JavascriptExecutor jsf = (JavascriptExecutor) driver;
-
-
-        jsf.executeScript("window.scrollBy(0,500)");
-        JavascriptExecutor js1f = (JavascriptExecutor) driver;
-
-
-        js1f.executeScript("window.scrollBy(0,500)");
-        WebElement buttonElement = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div/div/button"));
-
-        // Click the button element
-        buttonElement.click();
+        WebElement element1 = driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[8]/a/span[2]"));
+        element1.click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//button[@type='button' and contains(@class,'rs-btn-green')]")).click();
         Thread.sleep(3000);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0, 500);");
-        Thread.sleep(2000);
-        WebElement element1 = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div[2]/div"));
-        js.executeScript("arguments[0].scrollIntoView(true);", element1);
+        driver.findElement(By.xpath("//button[@type=\"button\" and contains (@class ,\"swal2-confirm swal2-styled swal2-default-outline\")]")).click();
 
-        // Scroll to the bottom of the page
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-
-        // Scroll to the top of the page
-        js.executeScript("window.scrollTo(0, 0);");
 
 
 

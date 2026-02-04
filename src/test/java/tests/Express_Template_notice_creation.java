@@ -28,9 +28,9 @@ public class Express_Template_notice_creation {
         Login_functionality_admin test = new Login_functionality_admin();
         test.loginTest(driver);
         Thread.sleep(4000);
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[4]/a")).click();
+        driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[3]/a")).click();
         Thread.sleep(4000);
-        WebElement element = driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[4]/ul/li[1]/a"));
+        WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div/div/div[1]/div[2]/div/div/div/div/ul/li[3]/ul/li[1]/a"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
 

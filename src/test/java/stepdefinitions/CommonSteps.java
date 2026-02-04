@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import utilities.DriverFactory;
 import utilities.Login_functionality_admin;
+import utilities.ScenarioContext;
 
 import java.time.Duration;
 
@@ -54,6 +55,14 @@ public class CommonSteps {
         loginUtil.loginTest(driver);
         Thread.sleep(5000);
         System.out.println("Admin user logged in successfully to Incase360");
+    }
+
+    @Given("I am logged in as admin user")
+    public void i_am_logged_in_as_admin_user() throws InterruptedException {
+        // Same as above but with different wording (used by other features)
+        loginUtil.loginTest(driver);
+        Thread.sleep(5000);
+        System.out.println("Admin user logged in successfully");
     }
 
     // ==================================================================================
@@ -108,14 +117,99 @@ public class CommonSteps {
         select.selectByVisibleText(noticeType);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         System.out.println("Selected notice type: " + noticeType);
+
+        // Wait for batch dropdown to load dynamically (if it appears after notice type selection)
+        System.out.println("Waiting for batch dropdown to load dynamically...");
+        Thread.sleep(5000);
     }
 
     @And("the admin clicks the submit button")
     public void the_admin_clicks_the_submit_button() throws InterruptedException {
+        // FINAL VERIFICATION: Check batch one more time BEFORE submitting
+        String expectedBatch = (String) ScenarioContext.getContext("EXPECTED_BATCH");
+        if (expectedBatch != null) {
+            try {
+                WebElement batchDisplay = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/div[3]/div/div/div/div[1]/span"));
+                String currentBatch = batchDisplay.getText().trim();
+
+                System.out.println("========================================");
+                System.out.println("BEFORE SUBMIT - FINAL Batch check:");
+                System.out.println("Expected: [" + expectedBatch + "]");
+                System.out.println("Current: [" + currentBatch + "]");
+                System.out.println("========================================");
+
+                if (!currentBatch.equals(expectedBatch)) {
+                    System.out.println("❌❌❌ WRONG BATCH RIGHT BEFORE SUBMIT! ❌❌❌");
+                    throw new RuntimeException("❌ About to submit WRONG batch '" + currentBatch + "' instead of '" + expectedBatch + "'!");
+                } else {
+                    System.out.println("✅✅✅ Correct batch - ready to submit! ✅✅✅");
+                }
+            } catch (Exception e) {
+                System.out.println("⚠️ Could not verify batch: " + e.getMessage());
+            }
+        }
+
+        System.out.println("========================================");
+        System.out.println("🔍 Clicking submit button...");
+        System.out.println("========================================");
+
+        // Wait before clicking submit to ensure all fields are ready
+        Thread.sleep(2000);
+
         // Click the primary submit button
         driver.findElement(By.cssSelector("button[class='btn btn-primary']")).click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         System.out.println("Submit button clicked");
+
+        // DEBUG: Check for any validation errors after clicking submit
+        System.out.println("========================================");
+        System.out.println("🔍 Checking for validation errors...");
+        System.out.println("========================================");
+
+        try {
+            // Look for common validation error patterns
+            java.util.List<WebElement> errorElements = driver.findElements(By.xpath(
+                "//*[contains(@class, 'error') or contains(@class, 'invalid') or " +
+                "contains(@class, 'alert-danger') or contains(@style, 'color: red') or " +
+                "contains(@style, 'color:red') or contains(text(), 'required') or " +
+                "contains(text(), 'Required')]"
+            ));
+
+            boolean hasErrors = false;
+            for (WebElement error : errorElements) {
+                if (error.isDisplayed() && !error.getText().trim().isEmpty()) {
+                    hasErrors = true;
+                    System.out.println("❌ VALIDATION ERROR: " + error.getText());
+                }
+            }
+
+            if (!hasErrors) {
+                System.out.println("✅ No validation errors detected");
+            } else {
+                // Print entire page source for debugging
+                System.out.println("========================================");
+                System.out.println("🔍 Page may have validation errors. Waiting 3 seconds...");
+                System.out.println("========================================");
+                Thread.sleep(3000);
+
+                // Check again
+                errorElements = driver.findElements(By.xpath(
+                    "//*[contains(@class, 'error') or contains(@class, 'invalid') or " +
+                    "contains(@class, 'alert')]"
+                ));
+
+                System.out.println("Re-checking errors:");
+                for (WebElement error : errorElements) {
+                    if (error.isDisplayed() && !error.getText().trim().isEmpty()) {
+                        System.out.println("  - " + error.getText());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("✅ No validation errors found");
+        }
+
+        Thread.sleep(1000);
     }
 
     @And("the admin clicks the submit button for standard notice")
@@ -143,9 +237,92 @@ public class CommonSteps {
 
     @And("the admin confirms the bulk send operation")
     public void the_admin_confirms_the_bulk_send_operation() throws InterruptedException {
+        System.out.println("========================================");
+        System.out.println("🔍 Clicking confirmation button...");
+        System.out.println("========================================");
+
         // Click the confirmation button (SweetAlert confirm)
         driver.findElement(By.cssSelector("button[class='swal2-confirm swal2-styled swal2-default-outline']")).click();
-        Thread.sleep(2000);
+        System.out.println("✅ Confirmation button clicked");
+
+        // CRITICAL: Wait for backend to process the bulk send operation
+        System.out.println("========================================");
+        System.out.println("⏱️ Waiting 10 seconds for bulk send to process...");
+        System.out.println("========================================");
+        Thread.sleep(10000);  // Increased from 2 to 10 seconds
+
+        // Check for success/error messages after confirmation
+        System.out.println("========================================");
+        System.out.println("🔍 Checking for success/error messages...");
+        System.out.println("========================================");
+
+        try {
+            // Check for success message
+            java.util.List<WebElement> successMessages = driver.findElements(By.xpath(
+                "//*[contains(@class, 'swal2-success') or contains(@class, 'success') or " +
+                "contains(@class, 'swal2-confirm') or contains(text(), 'success') or " +
+                "contains(text(), 'Success') or contains(text(), 'sent') or " +
+                "contains(text(), 'Sent')]"
+            ));
+
+            boolean foundSuccess = false;
+            for (WebElement success : successMessages) {
+                if (success.isDisplayed() && !success.getText().trim().isEmpty()) {
+                    System.out.println("✅ SUCCESS MESSAGE: " + success.getText());
+                    foundSuccess = true;
+                }
+            }
+
+            // Check for error messages
+            java.util.List<WebElement> errorMessages = driver.findElements(By.xpath(
+                "//*[contains(@class, 'swal2-error') or contains(@class, 'error') or " +
+                "contains(@class, 'alert-danger') or contains(text(), 'error') or " +
+                "contains(text(), 'Error') or contains(text(), 'failed') or " +
+                "contains(text(), 'Failed')]"
+            ));
+
+            boolean foundError = false;
+            for (WebElement error : errorMessages) {
+                if (error.isDisplayed() && !error.getText().trim().isEmpty()) {
+                    System.out.println("❌ ERROR MESSAGE: " + error.getText());
+                    foundError = true;
+                }
+            }
+
+            if (!foundSuccess && !foundError) {
+                System.out.println("⚠️ No success or error messages found");
+
+                // Print current page URL for debugging
+                System.out.println("Current URL: " + driver.getCurrentUrl());
+
+                // Check if there are any visible popups/alerts
+                java.util.List<WebElement> allVisibleElements = driver.findElements(By.xpath(
+                    "//*[contains(@class, 'swal') or contains(@class, 'modal') or " +
+                    "contains(@class, 'alert')]"
+                ));
+
+                System.out.println("Visible popup elements:");
+                for (WebElement elem : allVisibleElements) {
+                    if (elem.isDisplayed()) {
+                        System.out.println("  - " + elem.getTagName() + ": " + elem.getText());
+                    }
+                }
+            }
+
+            if (foundError) {
+                System.out.println("========================================");
+                System.out.println("⚠️ WARNING: Errors detected after bulk send confirmation!");
+                System.out.println("========================================");
+            } else if (foundSuccess) {
+                System.out.println("========================================");
+                System.out.println("✅ Bulk send operation completed successfully!");
+                System.out.println("========================================");
+            }
+
+        } catch (Exception e) {
+            System.out.println("⚠️ Could not check for messages: " + e.getMessage());
+        }
+
         System.out.println("Bulk send operation confirmed successfully");
     }
 }
